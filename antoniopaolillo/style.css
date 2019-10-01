@@ -1,0 +1,19 @@
+.coresfixas{
+    background-color: black;
+    width: 40px;
+    height: 40px;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+}
+.elemento{
+    width: 40px;
+    height: 40px;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+}
+.corselecionada{
+    width: 240px;
+    height: 40px;
+}
