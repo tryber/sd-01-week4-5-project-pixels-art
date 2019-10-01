@@ -1,0 +1,38 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.divcores{
+    display: flex;
+    flex-direction: row;
+
+    width: 250px;
+
+    align-content: center;
+    justify-content: flex-start;
+
+    margin: 10px;
+}
+
+div.cores{
+    margin: 4px;
+    border: 2px solid black;
+    width: 50px;
+    height:50px;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+td{
+    border: 2px solid black;
+    width: 50px;
+    height: 50px;
+}
