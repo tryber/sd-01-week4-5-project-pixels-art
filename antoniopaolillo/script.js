@@ -18,18 +18,18 @@ function geradordecores() {
 function gerartamanho() {
     var tamanho = document.getElementById("tamanhotabela").value;
     var tamanhoreal = parseInt(tamanho, 10);
-    var teste = [];
+    var tamanhofinal = [];
     if (tamanhoreal > 4 && tamanhoreal < 51) {
-        for (var i = 0; i < 25; i++) {
-            teste[i] = document.getElementsByClassName("elemento")[i];
-            teste[i].style.width = tamanhoreal + "px";
-            teste[i].style.height = tamanhoreal + "px";
+        for (let i = 0; i < 25; i++) {
+            tamanhofinal[i] = document.getElementsByClassName("elemento")[i];
+            tamanhofinal[i].style.width = tamanhoreal + "px";
+            tamanhofinal[i].style.height = tamanhoreal + "px";
         }
-        var teste2 = [];
-        for (var i = 0; i < 5; i++) {
-            teste2[i] = document.getElementsByClassName("coresfixas")[i];
-            teste2[i].style.width = tamanhoreal + "px";
-            teste2[i].style.height = tamanhoreal + "px";
+        var tamanhofinal2 = [];
+        for (let i = 0; i < 5; i++) {
+            tamanhofinal2[i] = document.getElementsByClassName("coresfixas")[i];
+            tamanhofinal2[i].style.width = tamanhoreal + "px";
+            tamanhofinal2[i].style.height = tamanhoreal + "px";
         }
     } else {
         alert("O valor passado não está de acordo com o padrão!");
@@ -123,7 +123,30 @@ function tamanhopixel() {
     } else {
         alert("O valor passado não está de acordo com o padrão!");
     }
-criar();
+    criar();
+}
+
+function github() {
+    var contador2 = document.getElementsByTagName('td');
+    var teste = [];
+    var elementostr = document.getElementsByTagName('tr');
+    var elementostr2 = elementostr.length - 1;
+    console.log(elementostr2);
+    var contador4 = 0;
+
+    if (elementostr2 % 2 == 0) {
+        contador4 = elementostr2;
+    } else {
+        contador4 = elementostr2 + 1;
+    }
+    console.log(contador4 / 2)
+
+    for (let i = 0; i < contador4; i++) {
+        for (let n = 0; n < contador4 / 2; n++) {
+           teste = document.getElementsByTagName('td')[i]
+
+        }
+    }
 }
 
 
