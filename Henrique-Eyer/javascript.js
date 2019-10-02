@@ -52,11 +52,19 @@ for(i=2;i<5;i++){
     })
 }
 
-let corcelula;
+
 for(i=0;i<celulas.length;i++){
-    corcelula=celulas[i];
     celulas[i].addEventListener('click', function (){
         this.style.background=selectcor;
     })
 }
+
+
+var btnclear=document.getElementById("btnclear");
+btnclear.addEventListener('click', function(){
+    let i;
+for(i=0;i<celulas.length;i++){
+    celulas[i].style.background="#ffffff";   
+}
+})
 
