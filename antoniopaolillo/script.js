@@ -74,41 +74,56 @@ for (i = 0; i < elementodatabela.length; i++) {
     })
 }
 
+//função criada para ser chamada novamente após mudar a tabela
+function adicionarcor() {
+    let elementodatabela2 = document.getElementsByTagName('td');
+    for (i = 0; i < elementodatabela2.length; i++) {
+        elementodatabela2[i].addEventListener('click', function () {
+            this.style.background = corfinal;
+        })
+    }
+}
+
 //limpando a tela
 function limpartela() {
-    var elementodatabela2 = document.getElementsByTagName('td');
-    for (i = 0; i < elementodatabela2.length; i++) {
-        elementodatabela2[i].style.background = "white";
+    let elementodatabela3 = document.getElementsByTagName('td');
+    for (i = 0; i < elementodatabela3.length; i++) {
+        elementodatabela3[i].style.background = "white";
     }
 }
 
 //mudando o tamanho do quadrado mediante clique
 function tamanhopixel() {
     var contador = document.getElementById("tamanho2").value;
-    var tamanhodatabela = document.getElementsByTagName("tr");
-    var segundocontador = tamanhodatabela.length - 1;
-    console.log(segundocontador);
-
-    var tabelaapagar = document.getElementsByTagName('tbody')[1];
-    //agapando a table
-    for (let i = 0; i < segundocontador; i++) {
-        let apagar = tabelaapagar.firstElementChild;
-        tabelaapagar.removeChild(apagar);
-    }
-}
-
-
-function criar (){
-    //gerando nova table
-    for (let cont = 0; cont < contador; cont++) {
-        var linhas = document.createElement('tr');
-        linhas.class = "newtable";
-        tabelaapagar.appendChild(linhas);
-
-        for (let cont1 = 0; cont1 < contador; cont1++) {
-            var elementos = document.createElement('td');
-            elementos.class = "newtable";
-            linhas.appendChild(elementos);
+    if (contador > 4 && contador < 51) {
+        var tamanhodatabela = document.getElementsByTagName("tr");
+        var segundocontador = tamanhodatabela.length - 1;
+        var tabelaapagar = document.getElementsByTagName('tbody')[1];
+        //agapando a table
+        for (let i = 0; i < segundocontador; i++) {
+            let apagar = tabelaapagar.firstElementChild;
+            tabelaapagar.removeChild(apagar);
         }
+        function criar() {
+            //gerando nova table
+            for (let cont = 0; cont < contador; cont++) {
+                var linhas = document.createElement('tr');
+                linhas.setAttribute("class", "elemento");
+                tabelaapagar.appendChild(linhas);
+
+                for (let cont1 = 0; cont1 < contador; cont1++) {
+                    var elementos = document.createElement('td');
+                    elementos.setAttribute("class", "elemento");
+                    linhas.appendChild(elementos);
+                }
+            }
+            //chamando a função que muda as cores de acordo com o clique
+            adicionarcor();
+        }
+    } else {
+        alert("O valor passado não está de acordo com o padrão!");
     }
+criar();
 }
+
+

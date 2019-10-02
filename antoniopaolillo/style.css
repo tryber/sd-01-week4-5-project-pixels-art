@@ -1,3 +1,6 @@
+.tabelaemmovimento{
+    border-collapse: collapse;
+}
 .coresfixas{
     background-color: black;
     width: 40px;
@@ -6,7 +9,7 @@
     border-style: solid;
     border-width: 1px;
 }
-.elemento, .newtable{
+.elemento, .newtable {
     width: 40px;
     height: 40px;
     border-color: black;
