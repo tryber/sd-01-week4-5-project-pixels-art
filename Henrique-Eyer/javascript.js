@@ -1,5 +1,5 @@
 
-var celulas=pegaMatriz();
+var celulas=pegaMatriz();//
 var btnclear=document.getElementById("btnclear");
 var tamanho=document.getElementById('tamanho');
 var table=document.querySelector('table');
@@ -10,8 +10,10 @@ var avatar=document.getElementById("avatar");
 
 window.addEventListener('load', function (){
     selectcor=document.getElementById('cor1').style.background;
-    disablemargem(document.getElementById('cor1'));
+    disablemargem(document.getElementById('cor1'));  
+    GeraMatriz(5);
 })
+
 
 avatar.addEventListener('click', function (){
     github();
@@ -23,9 +25,9 @@ function github(){
     if(tamanho.value%2==0){
         meio=tamanho.value/2;
     }else{
-        meio=(tamanho.value+1)/2
+        meio=tamanho.value/2+0.5;
     }
- 
+    
     let i;
     let j;
     let j2=tamanho.value-1;
@@ -34,12 +36,15 @@ function github(){
 
         for(j=0;j<meio;j++,j2--){
             let pos=document.getElementById(i+","+j)
+            
             let pos2=document.getElementById(i+","+j2)
             let aleatório=Math.floor(Math.random() * 2);
+            
             if(aleatório==1){
                 pos.style.background=selectcor;
                 pos2.style.background=selectcor;
             }
+
         }
         j2=tamanho.value-1;
     }
@@ -53,14 +58,22 @@ function github(){
 
 
 tamanho.addEventListener('change',function(){
+    GeraMatriz(tamanho.value);
+})
+
+
+
+
+
+function GeraMatriz(num){
     var i;
     var j;
     
-    for(i=0;i<tamanho.value;i++){
+    for(i=0;i<num;i++){
         let linha=document.createElement("tr")
         table.appendChild(linha);
         
-        for(j=0;j<tamanho.value;j++){
+        for(j=0;j<num;j++){
             let cel=document.createElement('td')
             cel.id=i+","+j;
             linha.appendChild(cel)
@@ -70,7 +83,7 @@ tamanho.addEventListener('change',function(){
     
     funcparamatriz(pegaMatriz());
     disable();
-})
+}
 
 function disable(){
     document.getElementById("tamanho").disabled = true;
