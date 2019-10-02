@@ -8,6 +8,14 @@
     margin: 0;
 }
 
+.container{
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+    
+}
+
 .divcores{
     display: flex;
     flex-direction: row;
