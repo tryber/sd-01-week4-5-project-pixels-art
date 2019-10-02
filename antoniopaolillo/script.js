@@ -82,3 +82,33 @@ function limpartela() {
     }
 }
 
+//mudando o tamanho do quadrado mediante clique
+function tamanhopixel() {
+    var contador = document.getElementById("tamanho2").value;
+    var tamanhodatabela = document.getElementsByTagName("tr");
+    var segundocontador = tamanhodatabela.length - 1;
+    console.log(segundocontador);
+
+    var tabelaapagar = document.getElementsByTagName('tbody')[1];
+    //agapando a table
+    for (let i = 0; i < segundocontador; i++) {
+        let apagar = tabelaapagar.firstElementChild;
+        tabelaapagar.removeChild(apagar);
+    }
+}
+
+
+function criar (){
+    //gerando nova table
+    for (let cont = 0; cont < contador; cont++) {
+        var linhas = document.createElement('tr');
+        linhas.class = "newtable";
+        tabelaapagar.appendChild(linhas);
+
+        for (let cont1 = 0; cont1 < contador; cont1++) {
+            var elementos = document.createElement('td');
+            elementos.class = "newtable";
+            linhas.appendChild(elementos);
+        }
+    }
+}

@@ -18,12 +18,15 @@
         <h1>PALETA DE CORES</h1>
         <!-- inputs -->
         <span class="texto">Digite numero de pixels (entre 5 e 50):</span><br>
-        <input type="text" id="tamanhotabela">
+        <input type="text" id="tamanhotabela"><br>
+        <span class="texto">Digite numero de pixels 2:</span><br>
+        <input type="text" id="tamanho2"><br>
         <button class="botaodotamanho" onclick="gerartamanho()">Gerar Tabela</button><br><br>
         <button class="botaoclear" onclick="limpartela()">Limpar a tela</button><br><br>
+        <button class="botaogerartamanho" onclick="tamanhopixel()">Limpar a tela em teste</button><br><br>
 
         <!-- tabela principal -->
-        <table class="tabela">
+        <table class="tabelafixa">
             <!-- paleta de cores -->
             <tr>
                 <th class="coresfixas"></th>
@@ -32,7 +35,10 @@
                 <th class="coresfixas"></th>
                 <th class="coresfixas"></th>
             </tr>
-            <!-- tabela a ser preenchida -->
+        </table>
+        
+        <!-- tabela a ser preenchida -->
+        <table class="tabelaemmovimento">
             <tr>
                 <td class="elemento"></td>
                 <td class="elemento"></td>
