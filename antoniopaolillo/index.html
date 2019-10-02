@@ -13,11 +13,18 @@
 </head>
 
 <body onload="geradordecores()">
-    <span>Digite numero de pixels (entre 5 e 50):</span><br>
+    <center>
+    <!-- cabecalho -->
+    <h1>PALETA DE CORES</h1>
+    <!-- inputs -->
+    <span class="texto">Digite numero de pixels (entre 5 e 50):</span><br>
     <input type="text" id="tamanhotabela">
-    <button class ="botaodotamanho" onclick="gerartamanho()">Gerar Tabela</button>
-    
+    <button class ="botaodotamanho" onclick="gerartamanho()">Gerar Tabela</button><br><br>
+    <button class ="botaoclear" onclick="limpartela()">Limpar a tela</button><br><br>
+   
+    <!-- tabela principal -->
     <table class="tabela">
+        <!-- paleta de cores -->
         <tr>
             <th class="coresfixas"></th>
             <th class="coresfixas"></th>
@@ -25,6 +32,7 @@
             <th class="coresfixas"></th>
             <th class="coresfixas"></th>
         </tr>
+        <!-- tabela a ser preenchida -->
         <tr>
             <td class="elemento"></td>
             <td class="elemento"></td>
@@ -61,12 +69,14 @@
             <td class="elemento"></td>
         </tr>
 
-    </table>
+    </table><br><br>
     
+    <!-- amostra da cor selecionada -->
     <div>
-        <span>COR SELECIONADA:</span>
+        <span class="texto">COR SELECIONADA:</span>
         <div class="corselecionada"></div>
     </div>
+</center>
 
     <script src="script.js"></script>
 </body>

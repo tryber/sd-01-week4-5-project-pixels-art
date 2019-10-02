@@ -16,4 +16,12 @@
 .corselecionada{
     width: 240px;
     height: 40px;
+    border-color: black;
+    border-style: inset;
+    border-width: 2px;
+    text-align: center;
+}
+.texto{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
 }

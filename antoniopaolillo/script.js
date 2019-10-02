@@ -68,7 +68,7 @@ function gerartamanho() {
     }
 }
 
-//armazenando a cor ao clique
+//armazenando a cor ao clique, colocando numa variavel e alterando a cor do mostrador
 var corfinal="black";
 var primeiracor = document.getElementsByClassName("coresfixas")[0];
 var segundacor = document.getElementsByClassName("coresfixas")[1];
@@ -106,4 +106,11 @@ for(i=0;i<elementodatabela.length;i++){
     })
 }
 
+//limpando a tela
+function limpartela() {
+    var elementodatabela2 = document.getElementsByTagName('td');
+    for(i=0;i<elementodatabela2.length;i++){
+        elementodatabela2[i].style.background = "white";
+    }
+}
 
