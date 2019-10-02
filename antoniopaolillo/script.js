@@ -1,49 +1,17 @@
 //gerando cores aleatorias
 function geradordecores() {
-    function gerador1() {
-        var cor1 = document.getElementsByClassName("coresfixas")[0];
+    for (let i = 0; i < 4; i++) {
+        var cor1 = [];
+        cor1[i] = document.getElementsByClassName("coresfixas")[i];
         var simbolos, color;
         simbolos = "0123456789ABCDEF";
         color = "#";
-        for (i = 0; i < 6; i++) {
+        for (let n = 0; n < 6; n++) {
             color = color + simbolos[Math.floor(Math.random() * 16)];
         }
-        cor1.style.backgroundColor = color;
-    }
-    function gerador2() {
-        var cor2 = document.getElementsByClassName("coresfixas")[1];
-        var simbolos, color;
-        simbolos = "0123456789ABCDEF";
+        cor1[i].style.backgroundColor = color;
         color = "#";
-        for (i = 0; i < 6; i++) {
-            color = color + simbolos[Math.floor(Math.random() * 16)];
-        }
-        cor2.style.backgroundColor = color;
     }
-    function gerador3() {
-        var cor3 = document.getElementsByClassName("coresfixas")[2];
-        var simbolos, color;
-        simbolos = "0123456789ABCDEF";
-        color = "#";
-        for (i = 0; i < 6; i++) {
-            color = color + simbolos[Math.floor(Math.random() * 16)];
-        }
-        cor3.style.backgroundColor = color;
-    }
-    function gerador4() {
-        var cor4 = document.getElementsByClassName("coresfixas")[3];
-        var simbolos, color;
-        simbolos = "0123456789ABCDEF";
-        color = "#";
-        for (i = 0; i < 6; i++) {
-            color = color + simbolos[Math.floor(Math.random() * 16)];
-        }
-        cor4.style.backgroundColor = color;
-    }
-    gerador1();
-    gerador2();
-    gerador3();
-    gerador4();
 }
 
 //alterando tamanho de pixels
@@ -69,7 +37,7 @@ function gerartamanho() {
 }
 
 //armazenando a cor ao clique, colocando numa variavel e alterando a cor do mostrador
-var corfinal="black";
+var corfinal = "black";
 var primeiracor = document.getElementsByClassName("coresfixas")[0];
 var segundacor = document.getElementsByClassName("coresfixas")[1];
 var terceiracor = document.getElementsByClassName("coresfixas")[2];
@@ -77,39 +45,39 @@ var quartacor = document.getElementsByClassName("coresfixas")[3];
 var quintacor = document.getElementsByClassName("coresfixas")[4];
 var corselecionada = document.getElementsByClassName("corselecionada")[0];
 
-primeiracor.addEventListener('click', function(){
+primeiracor.addEventListener('click', function () {
     corfinal = primeiracor.style.backgroundColor;
     corselecionada.style.backgroundColor = corfinal;
 })
-segundacor.addEventListener('click', function(){
+segundacor.addEventListener('click', function () {
     corfinal = segundacor.style.backgroundColor;
     corselecionada.style.backgroundColor = corfinal;
 })
-terceiracor.addEventListener('click', function(){
+terceiracor.addEventListener('click', function () {
     corfinal = terceiracor.style.backgroundColor;
     corselecionada.style.backgroundColor = corfinal;
 })
-quartacor.addEventListener('click', function(){
+quartacor.addEventListener('click', function () {
     corfinal = quartacor.style.backgroundColor;
     corselecionada.style.backgroundColor = corfinal;
 })
-quintacor.addEventListener('click', function(){
+quintacor.addEventListener('click', function () {
     corfinal = "black";
     corselecionada.style.backgroundColor = corfinal;
 })
 
 //adicionando a cor ao elemento clicado
 var elementodatabela = document.getElementsByTagName('td');
-for(i=0;i<elementodatabela.length;i++){
-    elementodatabela[i].addEventListener('click', function (){
-        this.style.background=corfinal;
+for (i = 0; i < elementodatabela.length; i++) {
+    elementodatabela[i].addEventListener('click', function () {
+        this.style.background = corfinal;
     })
 }
 
 //limpando a tela
 function limpartela() {
     var elementodatabela2 = document.getElementsByTagName('td');
-    for(i=0;i<elementodatabela2.length;i++){
+    for (i = 0; i < elementodatabela2.length; i++) {
         elementodatabela2[i].style.background = "white";
     }
 }
