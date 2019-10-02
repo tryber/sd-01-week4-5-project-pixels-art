@@ -18,9 +18,6 @@ function disablemargem(item){
 
 
 
-
-
-
 function gera_cor(){
     var hexadecimais = '0123456789ABCDEF';
     var cor = '#';
@@ -39,6 +36,13 @@ cores.addEventListener('click', function(){
     disablemargem(this);
 })
 
+
+window.addEventListener('load', function (){
+    selectcor=document.getElementById('cor1').style.background;
+    disablemargem(document.getElementById('cor1'));
+})
+
+
 for(i=2;i<5;i++){
     var cores=document.getElementById('cor'+i);
     cores.style.background=gera_cor();
@@ -55,3 +59,4 @@ for(i=0;i<celulas.length;i++){
         this.style.background=selectcor;
     })
 }
+
