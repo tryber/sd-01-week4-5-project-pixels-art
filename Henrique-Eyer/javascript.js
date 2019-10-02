@@ -6,11 +6,50 @@ var table=document.querySelector('table');
 var selectcor="black";
 var cores=document.getElementById('cor1');
 var reset=document.getElementById('reset');
+var avatar=document.getElementById("avatar");
 
 window.addEventListener('load', function (){
     selectcor=document.getElementById('cor1').style.background;
     disablemargem(document.getElementById('cor1'));
 })
+
+avatar.addEventListener('click', function (){
+    github();
+});
+
+function github(){
+    var meio;
+    
+    if(tamanho.value%2==0){
+        meio=tamanho.value/2;
+    }else{
+        meio=(tamanho.value+1)/2
+    }
+ 
+    let i;
+    let j;
+    let j2=tamanho.value-1;
+    
+    for(i=0;i<tamanho.value; i++){
+
+        for(j=0;j<meio;j++,j2--){
+            let pos=document.getElementById(i+","+j)
+            let pos2=document.getElementById(i+","+j2)
+            let aleatório=Math.floor(Math.random() * 2);
+            if(aleatório==1){
+                pos.style.background=selectcor;
+                pos2.style.background=selectcor;
+            }
+        }
+        j2=tamanho.value-1;
+    }
+
+
+
+}
+
+
+
 
 
 tamanho.addEventListener('change',function(){
@@ -23,7 +62,7 @@ tamanho.addEventListener('change',function(){
         
         for(j=0;j<tamanho.value;j++){
             let cel=document.createElement('td')
-            
+            cel.id=i+","+j;
             linha.appendChild(cel)
         }
     }
@@ -101,6 +140,8 @@ for(i=2;i<5;i++){
         disablemargem(this);
     })
 }
+
+
 
 
 function funcparamatriz(celulas){
