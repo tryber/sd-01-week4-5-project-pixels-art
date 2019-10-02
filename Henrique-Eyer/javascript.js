@@ -17,101 +17,99 @@ window.addEventListener('load', function (){
     GeraMatriz(5);
 })
 
-//function
+//Adicionando o evento de click no botao de avatar, ele chama a funçao git hub quando for clicado.
 avatar.addEventListener('click', function (){
     github();
 });
 
+//Criando função para criar o avatar do git hub
 function github(){
-    
-    
-    var meio;
 
-    clearALL();
+    var meio;//função para pegar o meio da div para gerar o estilo de espelhamento do git hub
+
+    clearALL();//função para limpar 
     
+    //if para pegar se é par ou impar e pegar a metade do tamanho
     if(tamanho.value%2==0){
-        meio=tamanho.value/2;
+        meio=tamanho.value/2;//meio caso for par
     }else{
-        meio=tamanho.value/2+0.5;
+        meio=tamanho.value/2+0.5;//meio caso for impar
     }
     
+    //variaveis de controle
     let i;
     let j;
-    let j2=tamanho.value-1;
+    let j2=tamanho.value-1;//J2 para começar no final da linha
     
+    //for para percorrer a matriz 
     for(i=0;i<tamanho.value; i++){
-        
+
         for(j=0;j<meio;j++,j2--){
-            let pos=document.getElementById(i+","+j)
+
+            let pos=document.getElementById(i+","+j)//variavel criada para pegar o elemento de acordo com a id do inicio ao meio.
             
-            let pos2=document.getElementById(i+","+j2)
-            let aleatório=Math.floor(Math.random() * 2);
+            let pos2=document.getElementById(i+","+j2)//variavel criada para pegar o elemento de acordo com a id mas essa é pra pegar o elemento da direita pra esquerda ate o meio
+            let aleatório=Math.floor(Math.random() * 2);//Variavel random de 0 ou 1 para o definir se pinta ou nao o quadrado.
             
             if(aleatório==1){
-                pos.style.background=selectcor;
+                pos.style.background=selectcor;//pinta o quadrado
                 pos2.style.background=selectcor;
             }
-            
         }
-        j2=tamanho.value-1;
+        j2=tamanho.value-1;// Para rodar na proxima linha ele recuperar o valor do tamanho da matriz
     }
-
-    
-    
-    
-    
 }
 
-
-
-
-
+//Adicionando ao input o evento change e quando ele mudar ele gera a matriz.
 tamanho.addEventListener('change',function(){
     GeraMatriz(tamanho.value);
 })
 
 
-
-function GeraMatriz(num){
+//funçao que gera a Matriz o num é o tamanho a ser recebido.
+function GeraMatriz(tamanho){
     var i;
     var j;
-    
-    for(i=0;i<num;i++){
-        let linha=document.createElement("tr")
-        table.appendChild(linha);
+    //for para percorrer criar o primeiro serve para criar o numero de tr
+    for(i=0;i<tamanho;i++){
+        let linha=document.createElement("tr")//cria o elemento tr
+        table.appendChild(linha);//adiciona o elemento criado a table
         
-        for(j=0;j<num;j++){
+        //for para percorrer e criar os elementos dentro da tr
+        for(j=0;j<tamanho;j++){
             let cel=document.createElement('td')
-            cel.id=i+","+j;
-            linha.appendChild(cel)
+            cel.id=i+","+j;//adicionar uma id ao elemento id para pegar os valores mais facilmente futuramente
+            linha.appendChild(cel)//adiciona o tr a td.
         }
     }
     
     
-    funcparamatriz(pegaMatriz());
-    disable();
+    funcparamatriz(pegaMatriz());//Adiciona a funcao de click a todos os elementos
+    disable();//Disabilita o input de adicionar o tamanho
 }
-
+//funcao para disabilitar o campo input de tamanho
 function disable(){
     document.getElementById("tamanho").disabled = true;
 }
+//funcao para habilita o campo input de tamanho
 function enable(){
     document.getElementById("tamanho").disabled = false;
 }
 
 
-
+//adicionando um evento de clica ao botao.
+//funcao serve para deletar a Matriz
 reset.addEventListener('click', function(){
     let i;
     for(i=0;i<tamanho.value;i++){
-        let childtable=table.firstElementChild
-        table.removeChild(childtable);
+        let childtable=table.firstElementChild//pega a primeira filha(tr) depois da table
+        table.removeChild(childtable);//deleta a child abaixo da table.(tr)
     }
-    enable();
+    enable();//ativa o input do tamanho
 })
 
 
-
+//funcao pega a matriz e retorna todos os elementos td
 function pegaMatriz(){
     let celulas=document.getElementsByTagName('td');
     return celulas;
@@ -119,29 +117,30 @@ function pegaMatriz(){
 
 
 
-
+//adiciona ao primeira div a cor preta
 cores.style.background='black';
+//adicionando o evento de click a primeira cor o botao quando clicado, adiciona a cor do background a variavel selctedcor 
 cores.addEventListener('click', function(){
     selectcor=this.style.background;
-    disablemargem(this);
+    disablemargem(this);//chama funcao que apaga a boxshadow das outras cores. this passa o proprio elemento para ativar a margem do elemento clicado.
 })
 
 
-
+//funcao onde apaga a boxshadow as margem e recebe um parametro que é o elemento que foi clicado para ativar a margem dele depois.
 function disablemargem(item){
     let i=0;
-    
+    //for para passar em cada div
     for(i=1;i<5;i++){
-        let allcores=document.getElementById('cor'+i);
-        allcores.style.boxShadow="";
+        let allcores=document.getElementById('cor'+i);//pega via id o elemento
+        allcores.style.boxShadow="";//deleta a boxshadow
     }
     
-    item.style.boxShadow=" 4px 4px "+item.style.background
+    item.style.boxShadow=" 4px 4px "+item.style.background//Adiciona o style box shadow ao elemento
     
 }
 
 
-
+//funcao geradora de cores
 function gera_cor(){
     var hexadecimais = '0123456789ABCDEF';
     var cor = '#';
@@ -153,7 +152,8 @@ function gera_cor(){
     return cor;
 }
 
-
+//adiciona para cada div de cor uma cor de background 
+//e adiciona o evento de click para enviar a cor de background para a variavel que guarda a cor selecionada
 for(i=2;i<5;i++){
     var cores=document.getElementById('cor'+i);
     cores.style.background=gera_cor();
@@ -165,7 +165,7 @@ for(i=2;i<5;i++){
 
 
 
-
+//FUnção para adicionar o evento de click na celula para ser colorida
 function funcparamatriz(celulas){
     for(i=0;i<celulas.length;i++){
         celulas[i].addEventListener('click', function (){
@@ -174,14 +174,15 @@ function funcparamatriz(celulas){
     }
 }
 
-
+//Funçao para colocar todas as celulas em branco
 function clearALL(){
     let i;
     for(i=0;i<celulas.length;i++){
         celulas[i].style.background="#ffffff"; 
     }
 }
-
+//Adicionar o evento de click ao botao clear
+//Chama a função que limpa tudo.
 btnclear.addEventListener('click', function(){
     clearALL();
 })
