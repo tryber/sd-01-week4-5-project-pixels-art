@@ -31,10 +31,17 @@
 }
 
 
+
 td {
     width: 40px;
     height: 40px;
     border-width: 1px;
     border-color: black;
     border-style: solid;
+}
+
+
+
+table {
+    margin-top: 1%;
 }
