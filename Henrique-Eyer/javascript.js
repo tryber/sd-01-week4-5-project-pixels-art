@@ -1,12 +1,15 @@
 //Variaveis para pegar os elementos HTML
-var celulas=pegaMatriz();//variavel pega as celular da table, função retornar todos os elementos td
-var btnclear=document.getElementById("btnclear");//variavel que pega o botao clear(botao limpa as coisas)
-var tamanho=document.getElementById('tamanho');//variavel guarda o tamanho da matriz (5x5)(6x6)
-var table=document.querySelector('table');//Varavel para retornar o elemento table
-var selectcor="black";//variavel para guardar a cor selecionada
-var cores=document.getElementById('cor1');//varaivel para selecionar o quadrado preto já começar com ele selecionado;
-var reset=document.getElementById('reset');//variavel para pegar o elemento botao reset
-var avatar=document.getElementById("avatar");//variavel para pegar o elemento botao do avatar
+var celulas=pegaMatriz();
+var btnclear=document.getElementById("btnclear");
+var tamanho=document.getElementById('tamanho');
+var table=document.querySelector('table');
+var selectcor="black";
+var cores=document.getElementById('cor1');
+var reset=document.getElementById('reset');
+var avatar=document.getElementById("avatar");
+
+
+
 
 //function que roda quando a tela for carregada
 //Ela começa selecionando a cor para preto
@@ -25,15 +28,15 @@ avatar.addEventListener('click', function (){
 //Criando função para criar o avatar do git hub
 function github(){
 
-    var meio;//função para pegar o meio da div para gerar o estilo de espelhamento do git hub
+    var meio;
 
-    clearALL();//função para limpar 
+    clearALL();
     
     //if para pegar se é par ou impar e pegar a metade do tamanho
     if(tamanho.value%2==0){
-        meio=tamanho.value/2;//meio caso for par
+        meio=tamanho.value/2;
     }else{
-        meio=tamanho.value/2+0.5;//meio caso for impar
+        meio=tamanho.value/2+0.5;
     }
     
     //variaveis de controle
@@ -46,20 +49,19 @@ function github(){
 
         for(j=0;j<meio;j++,j2--){
 
-            let pos=document.getElementById(i+","+j)//variavel criada para pegar o elemento de acordo com a id do inicio ao meio.
+            let pos=document.getElementById(i+","+j)
             
-            let pos2=document.getElementById(i+","+j2)//variavel criada para pegar o elemento de acordo com a id mas essa é pra pegar o elemento da direita pra esquerda ate o meio
-            let aleatório=Math.floor(Math.random() * 2);//Variavel random de 0 ou 1 para o definir se pinta ou nao o quadrado.
+            let pos2=document.getElementById(i+","+j2)
+            let aleatório=Math.floor(Math.random() * 2);
             
             if(aleatório==1){
-                pos.style.background=selectcor;//pinta o quadrado
+                pos.style.background=selectcor;
                 pos2.style.background=selectcor;
             }
         }
-        j2=tamanho.value-1;// Para rodar na proxima linha ele recuperar o valor do tamanho da matriz
-    }
+        j2=tamanho.value-1;
 }
-
+}
 //Adicionando ao input o evento change e quando ele mudar ele gera a matriz.
 tamanho.addEventListener('change',function(){
     GeraMatriz(tamanho.value);
@@ -72,20 +74,20 @@ function GeraMatriz(tamanho){
     var j;
     //for para percorrer criar o primeiro serve para criar o numero de tr
     for(i=0;i<tamanho;i++){
-        let linha=document.createElement("tr")//cria o elemento tr
-        table.appendChild(linha);//adiciona o elemento criado a table
+        let linha=document.createElement("tr")
+        table.appendChild(linha);
         
         //for para percorrer e criar os elementos dentro da tr
         for(j=0;j<tamanho;j++){
             let cel=document.createElement('td')
-            cel.id=i+","+j;//adicionar uma id ao elemento id para pegar os valores mais facilmente futuramente
-            linha.appendChild(cel)//adiciona o tr a td.
+            cel.id=i+","+j;
+            linha.appendChild(cel)
         }
     }
     
     
-    funcparamatriz(pegaMatriz());//Adiciona a funcao de click a todos os elementos
-    disable();//Disabilita o input de adicionar o tamanho
+    funcparamatriz(pegaMatriz());
+    disable();
 }
 //funcao para disabilitar o campo input de tamanho
 function disable(){
@@ -102,10 +104,10 @@ function enable(){
 reset.addEventListener('click', function(){
     let i;
     for(i=0;i<tamanho.value;i++){
-        let childtable=table.firstElementChild//pega a primeira filha(tr) depois da table
-        table.removeChild(childtable);//deleta a child abaixo da table.(tr)
+        let childtable=table.firstElementChild
+        table.removeChild(childtable);
     }
-    enable();//ativa o input do tamanho
+    enable();
 })
 
 
