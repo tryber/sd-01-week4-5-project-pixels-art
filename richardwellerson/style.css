@@ -15,3 +15,31 @@ td {
     height: 40px;
     border: 1px solid black;
 }
+
+hr {
+    width: 25%;
+}
+
+#tblblack{
+    background-color: black;
+    border: 1px dashed whitesmoke;
+
+}
+
+
+#tblred{
+    background-color: red;
+    border: 1px dashed whitesmoke;
+}
+
+
+#tblblue{
+    background-color: blue;
+    border: 1px dashed whitesmoke;
+}
+
+
+#tblyellowgreen{
+    background-color: yellowgreen;
+    border: 1px dashed whitesmoke;
+}
