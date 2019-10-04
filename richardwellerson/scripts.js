@@ -24,7 +24,19 @@
 
 // }
 
-let tblBlack = document.getElementById("tblblack");
+let tblBlack = document.getElementById("tblblack")
+let tblRed = document.getElementById("tblred")
+let tblBlue = document.getElementById("tblblue")
+let tblYellowgreen = document.getElementById("tblyellowgreen")
+
+tblBlack.addEventListener("click",function(){
+    tblBlack.style.backgroundColor = "black"
+    console.log("teste")
+})
+
+
+
+
 
 
 
