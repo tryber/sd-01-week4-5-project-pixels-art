@@ -24,20 +24,43 @@
 
 // }
 
+let arrayColors = ["black","red","blue","yellowgreen","white"]
 let tblBlack = document.getElementById("tblblack")
 let tblRed = document.getElementById("tblred")
 let tblBlue = document.getElementById("tblblue")
-let tblYellowgreen = document.getElementById("tblyellowgreen")
+let tblYellowGreen = document.getElementById("tblyellowgreen")
+let firstColor = arrayColors[0]
 
 tblBlack.addEventListener("click",function(){
-    tblBlack.style.backgroundColor = "black"
-    console.log("teste")
+    firstColor = arrayColors[0]
 })
 
+tblRed.addEventListener("click",function(){
+    firstColor = arrayColors[1]
+})
 
+tblBlue.addEventListener("click",function(){
+    firstColor = arrayColors[2]
+})
 
+tblYellowGreen.addEventListener("click",function(){
+    firstColor = arrayColors[3]
+})
 
+function backgroundColorCell(){
+    for (let i = 0; i < 25; i++) {
+    let celulaTab = document.getElementsByClassName("celula")[i]
+        celulaTab.addEventListener("click", function(){
+        celulaTab.style.backgroundColor = firstColor})
+    }
+}
+backgroundColorCell()
 
+function cleanTable() {
+    
+}
+
+// Clica no botão, classifica todas as class como background = white
 
 
 
