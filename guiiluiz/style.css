@@ -1,36 +1,38 @@
+#titleinput {
+    display: block;
+}
+
+#titlepaleta {
+    display: none;
+}
+
 #paleta {
-    display: inline-flex;
+    display: none;
 }
 .paleta {
     width: 50px;
     height: 50px;
 }
-#black {
-    background: black;
+#paleta1 {
     border-width: 1px;
     border-color: black;
     border-style: solid;
 }
-#blue {
-    background: blue;    
+#paleta2 {  
     border-width: 1px;
     border-color: black;
     border-style: solid;
 }
-#red {
-    background: red;    
+#paleta3 { 
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;;
+}
+#paleta4 {   
     border-width: 1px;
     border-color: black;
     border-style: solid;
 }
-#yellow {
-    background: yellow;    
-    border-width: 1px;
-    border-color: black;
-    border-style: solid;
-}
-
-
 
 td {
     width: 40px;
@@ -39,8 +41,6 @@ td {
     border-color: black;
     border-style: solid;
 }
-
-
 
 table {
     margin-top: 1%;

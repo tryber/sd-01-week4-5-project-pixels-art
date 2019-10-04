@@ -12,7 +12,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 
-<body>
+<body onload="randomColor()">
     <div class="container-fluid text-center">
         <div class="row content">
             <div class="col-sm-2 sidenav">
@@ -20,21 +20,24 @@
             <div class="col-sm-8">
                 <h1>Arte com Pixels</h1>
                 <hr>
-                <h3>Paleta de Cores</h3>
+                <h3 id="titlepaleta">Paleta de Cores</h3>
 
                 <!-- PALETA DE CORES -->
-                <div id="paleta">
-                    <div id="black" class="paleta" onclick="changeColor('black')"></div>
-                    <div id="blue" class="paleta" onclick="changeColor('blue')"></div>
-                    <div id="red" class="paleta" onclick="changeColor('red')"></div>
-                    <div id="yellow" class="paleta" onclick="changeColor('yellow')"></div>
+                <div id="paleta" style="display: none">
+                    <div id="paleta1" class="paleta" onclick="changeColor('#paleta1')"></div>
+                    <div id="paleta2" class="paleta" onclick="changeColor('#paleta2')"></div>
+                    <div id="paleta3" class="paleta" onclick="changeColor('#paleta3')"></div>
+                    <div id="paleta4" class="paleta" onclick="changeColor('#paleta4')"></div>
                 </div>
 
-
-                <!-- TABELA -->
                 <center>
-                    <input id="userpixel" type="number" placeholder="Digite o valor da altura e da largura (min 5 e max 50)"
+                    <!-- INPUT -->
+                    <h3 id="titleinput">Crie sua Tabela</h3>
+                    <input id="userpixel" type="number"
+                        placeholder="Digite o valor da altura e da largura (min 5 e max 50)"
                         style="text-align: center;width:350px" onblur="pixelHeightWidth(this.value)">
+
+                    <!-- TABELA -->
                     <table></table>
                 </center>
 

@@ -1,11 +1,25 @@
 var color = "black";
 var selected;
 
+// Gera uma cor aleatória
+function randomColor() {
+    rcolor = '#' + (0x1000000 + Math.random() * 0xFFFFFF).toString(16).substr(1, 6);
+    return rcolor
+}
+
+// Coloca cores na paleta
+function colorGenerator() {
+    let c, targets = document.querySelectorAll('.paleta');
+    for (c = 0; c < 4; c++) {
+        targets[c].style.backgroundColor = randomColor()
+    }
+}
+
 // Mudar cor selecionada
-function changeColor(selectedcolor) {
-    color = selectedcolor;
+function changeColor(cor) {
+    color = document.querySelector(cor).style.backgroundColor;
     clearSelected()
-    selected = document.getElementById(selectedcolor)
+    selected = document.querySelector(cor)
     selectColor()
 }
 
@@ -18,10 +32,10 @@ function selectColor() {
 
 // Limpa a seleção de cor
 function clearSelected() {
-    let color1 = document.getElementsByClassName("paleta")[0]
-    let color2 = document.getElementsByClassName("paleta")[1]
-    let color3 = document.getElementsByClassName("paleta")[2]
-    let color4 = document.getElementsByClassName("paleta")[3]
+    var color1 = document.getElementsByClassName("paleta")[0]
+    var color2 = document.getElementsByClassName("paleta")[1]
+    var color3 = document.getElementsByClassName("paleta")[2]
+    var color4 = document.getElementsByClassName("paleta")[3]
 
     color1.style.borderColor = "black"
     color1.style.borderStyle = "solid"
@@ -38,6 +52,34 @@ function clearSelected() {
     color4.style.borderColor = "black"
     color4.style.borderStyle = "solid"
     color4.style.borderWidth = "1px"
+}
+
+
+
+var cells = cellIdentifier();
+
+// Retorna celulas da matriz
+function cellIdentifier() {
+    let cells = document.getElementsByTagName('td');
+    return cells;
+}
+
+// Colore as celulas ao clicar
+function colorCellOnClick() {
+    let i = 0;
+    for (i = 0; i < cells.length; i++) {
+        cells[i].addEventListener('click', function () {
+            this.style.background = color;
+        })
+    }
+}
+
+// Limpar todas as celulas
+function clearAll() {
+    let i;
+    for (i = 0; i < cells.length; i++) {
+        cells[i].style.background = "#ffffff";
+    }
 }
 
 
@@ -71,9 +113,13 @@ function createTable(n) {
         table.appendChild(tr);
     }
     colorCellOnClick()
+    colorGenerator()
+    clearSelected()
+    color = "black";
+    exibePaleta()
 }
 
-// Apaga se existir alguma table
+// Apaga se existir alguma tabela
 function resetTable() {
     while (table.hasChildNodes()) {
         table.removeChild(table.firstChild); // Apaga se existir alguma table
@@ -82,32 +128,9 @@ function resetTable() {
 
 
 
-var cells = cellIdentifier();
-
-// Retorna celulas da matriz
-function cellIdentifier() {
-    let cells = document.getElementsByTagName('td');
-    return cells;
-}
-
-
-
-// Colore as celulas ao clicar
-function colorCellOnClick() {
-    let i = 0;
-    for (i = 0; i < cells.length; i++) {
-        cells[i].addEventListener('click', function () {
-            this.style.background = color;
-        })
-    }
-}
-
-
-
-// Limpar todas as celulas
-function clearAll() {
-    let i;
-    for (i = 0; i < cells.length; i++) {
-        cells[i].style.background = "#ffffff";
-    }
+// Faz a paleta aparecer na tela
+function exibePaleta() {
+    document.getElementById('paleta').style.display = "inline-flex";
+    document.getElementById('titlepaleta').style.display = "block";
+    document.getElementById('titleinput').style.display = "none";
 }
