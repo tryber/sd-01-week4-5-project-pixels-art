@@ -14,28 +14,6 @@ function geradordecores() {
     }
 }
 
-//alterando tamanho de pixels
-function gerartamanho() {
-    var tamanho = document.getElementById("tamanhotabela").value;
-    var tamanhoreal = parseInt(tamanho, 10);
-    var tamanhofinal = [];
-    if (tamanhoreal > 4 && tamanhoreal < 51) {
-        for (let i = 0; i < 25; i++) {
-            tamanhofinal[i] = document.getElementsByClassName("elemento")[i];
-            tamanhofinal[i].style.width = tamanhoreal + "px";
-            tamanhofinal[i].style.height = tamanhoreal + "px";
-        }
-        var tamanhofinal2 = [];
-        for (let i = 0; i < 5; i++) {
-            tamanhofinal2[i] = document.getElementsByClassName("coresfixas")[i];
-            tamanhofinal2[i].style.width = tamanhoreal + "px";
-            tamanhofinal2[i].style.height = tamanhoreal + "px";
-        }
-    } else {
-        alert("O valor passado não está de acordo com o padrão!");
-    }
-}
-
 //armazenando a cor ao clique, colocando numa variavel e alterando a cor do mostrador
 var corfinal = "black";
 var primeiracor = document.getElementsByClassName("coresfixas")[0];
@@ -92,10 +70,10 @@ function limpartela() {
     }
 }
 
-//mudando o tamanho do quadrado mediante clique
-function tamanhopixel() {
-    var contador = document.getElementById("tamanho2").value;
-    if (contador > 4 && contador < 51) {
+//mudando o tamanho do quadrado 
+function tamanhoquadrado() {
+    let contador = document.getElementById("tamanhoquadrado").value;
+    if (contador > 5 && contador < 51) {
         var tamanhodatabela = document.getElementsByTagName("tr");
         var segundocontador = tamanhodatabela.length - 1;
         var tabelaapagar = document.getElementsByTagName('tbody')[1];
@@ -126,27 +104,63 @@ function tamanhopixel() {
     criar();
 }
 
+//gerando table padrão github
 function github() {
-    var contador2 = document.getElementsByTagName('td');
-    var teste = [];
-    var elementostr = document.getElementsByTagName('tr');
-    var elementostr2 = elementostr.length - 1;
-    console.log(elementostr2);
-    var contador4 = 0;
+    limpartela()
+    let tabelaGit = [];
+    let tabelaGitTds = [];
+
+    let elementostr = document.getElementsByTagName('tr');
+    let elementostr2 = elementostr.length - 1;
+
+    let contador4 = elementostr2;
 
     if (elementostr2 % 2 == 0) {
         contador4 = elementostr2;
     } else {
         contador4 = elementostr2 + 1;
     }
-    console.log(contador4 / 2)
 
-    for (let i = 0; i < contador4; i++) {
-        for (let n = 0; n < contador4 / 2; n++) {
-           teste = document.getElementsByTagName('td')[i]
+    for (let n = 1; n < elementostr2 + 1; n++) {
+        tabelaGit[n] = document.getElementsByTagName('tr')[n];
 
+        if (elementostr2 > 5) {
+            for (let j = 0; j < contador4 / 2; j++) {
+
+                let posicao = elementostr2 - j - 1;
+
+                tabelaGitTds[j] = tabelaGit[n].childNodes[j];
+                tabelaGitTds[posicao] = tabelaGit[n].childNodes[posicao];
+                tabelaGitTds[j].value = Math.floor(Math.random() * 2);
+
+                if (tabelaGitTds[j].value == 1) {
+                    tabelaGitTds[j].style.backgroundColor = corfinal;
+                    tabelaGitTds[posicao].style.backgroundColor = corfinal;
+                } else {
+                    tabelaGitTds[j].style.backgroundColor = "white";
+                    tabelaGitTds[posicao].style.backgroundColor = "white";
+                }
+            }
+            //else necessario pois a table gerada no onload apresenta 'texts' entre as posições
+        } else {
+            for (let i = 1; i < contador4; i = i + 2) {
+
+                posicao = elementostr2 * 2 - i;
+                tabelaGitTds[i] = tabelaGit[n].childNodes[i];
+                tabelaGitTds[posicao] = tabelaGit[n].childNodes[posicao];
+                tabelaGitTds[i].value = Math.floor(Math.random() * 2);
+
+                if (tabelaGitTds[i].value == 1) {
+                    tabelaGitTds[i].style.backgroundColor = corfinal;
+                    tabelaGitTds[posicao].style.backgroundColor = corfinal;
+                } else {
+                    tabelaGitTds[i].style.backgroundColor = "white";
+                    tabelaGitTds[posicao].style.backgroundColor = "white";
+                }
+            }
         }
     }
 }
+
 
 
