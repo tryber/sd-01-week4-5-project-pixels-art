@@ -50,7 +50,6 @@ function github(){
         for(j=0;j<meio;j++,j2--){
 
             let pos=document.getElementById(i+","+j)
-            
             let pos2=document.getElementById(i+","+j2)
             let aleatório=Math.floor(Math.random() * 2);
             
@@ -72,6 +71,7 @@ tamanho.addEventListener('change',function(){
 function GeraMatriz(tamanho){
     var i;
     var j;
+    
     //for para percorrer criar o primeiro serve para criar o numero de tr
     for(i=0;i<tamanho;i++){
         let linha=document.createElement("tr")
@@ -81,7 +81,9 @@ function GeraMatriz(tamanho){
         for(j=0;j<tamanho;j++){
             let cel=document.createElement('td')
             cel.id=i+","+j;
+            
             linha.appendChild(cel)
+           
         }
     }
     
@@ -188,6 +190,4 @@ function clearALL(){
 btnclear.addEventListener('click', function(){
     clearALL();
 })
-
-
 
