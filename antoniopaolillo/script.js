@@ -141,7 +141,7 @@ function github() {
                     tabelaGitTds[posicao].style.backgroundColor = "white";
                 }
             }
-            //else necessario pois a table gerada no onload apresenta 'texts' entre as posições
+            //else necessario pois a table gerada no html inicial apresenta 'texts' entre as posições
         } else {
             for (let i = 1; i < contador4; i = i + 2) {
 
