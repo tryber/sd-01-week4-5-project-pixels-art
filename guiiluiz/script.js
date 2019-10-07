@@ -32,26 +32,14 @@ function selectColor() {
 
 // Limpa a seleção de cor
 function clearSelected() {
-    var color1 = document.getElementsByClassName("paleta")[0]
-    var color2 = document.getElementsByClassName("paleta")[1]
-    var color3 = document.getElementsByClassName("paleta")[2]
-    var color4 = document.getElementsByClassName("paleta")[3]
 
-    color1.style.borderColor = "black"
-    color1.style.borderStyle = "solid"
-    color1.style.borderWidth = "1px"
+    let cores = document.querySelectorAll(".paleta")
 
-    color2.style.borderColor = "black"
-    color2.style.borderStyle = "solid"
-    color2.style.borderWidth = "1px"
-
-    color3.style.borderColor = "black"
-    color3.style.borderStyle = "solid"
-    color3.style.borderWidth = "1px"
-
-    color4.style.borderColor = "black"
-    color4.style.borderStyle = "solid"
-    color4.style.borderWidth = "1px"
+    for (i = 0; i < cores.length; i++) {
+        cores[i].style.borderColor = "black";
+        cores[i].style.borderStyle = "solid";
+        cores[i].style.borderWidth = "1px";
+    }
 }
 
 
