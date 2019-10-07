@@ -48,31 +48,33 @@ function mudarCor() {
     let green = document.querySelector('.green')
     let black = document.querySelector('.black')
     
-    for(let i = 0; i < 4; i++){
-        blue.addEventListener('click', function(){
-            quadradosColoridos = "blue"
-        })
-    }
+    blue.addEventListener('click', function(){
+        quadradosColoridos = "blue"
+    })
+    
+    red.addEventListener('click', function(){
+        quadradosColoridos = "red"
+    })
+    
+    green.addEventListener('click', function(){
+        quadradosColoridos = "green"
+    })
+    
+    black.addEventListener('click', function(){
+        quadradosColoridos = "black"
+    })
+}
 
-    for(let i = 0; i < 4; i++){
-        red.addEventListener('click', function(){
-            quadradosColoridos = "red"
-        })
-    }
-
-    for(let i = 0; i < 4; i++){
-        green.addEventListener('click', function(){
-            quadradosColoridos = "green"
-        })
-    }
-
-    for(let i = 0; i < 4; i++){
-        black.addEventListener('click', function(){
-            quadradosColoridos = "black"
-        })
-    }
+function resetarCores() {
+    let button = document.querySelector('.btn')
+    button.addEventListener('click', function(){
+        for(let i = 4; i < quadradosBrancos.length; i++){
+            quadradosBrancos[i].style.backgroundColor = "white"
+        }
+    })
 }
 
 gerarQuadrados()
 corDefault()
 mudarCor()
+resetarCores()
