@@ -7,34 +7,72 @@ function gerarQuadrados() {
     
     let tr, td
     
+    // Cria a tabela vazia
     for (let i = 0; i < 5; i++){
         tr = document.createElement('tr')
         for (let j = 0; j < 5; j++){
             td = document.createElement('td')
-            td.classList.add('quadrados-criados')
             tr.appendChild(td)
         }
         table.appendChild(tr)
     }    
 }
 
+// Pega todas os quadrados gerados e coloca dentro de uma variável 
 function quadradosCriados() {
     let quadradosCriados = document.getElementsByTagName('td')
     return quadradosCriados;
 }
 
-let celulas = quadradosCriados()
+let quadradosBrancos = quadradosCriados()
 
-function colorirQuadrados() {    
-    for(let i = 0; i < celulas.length; i++){    
-        celulas[i].addEventListener('click', function(){
-            celulas[i].style.backgroundColor = "black"
+function color(){
+    return cor = "black"
+}
+
+let quadradosColoridos = color()
+
+// Se o usuário não selecionar nenhuma cor, irá colorir na cor preta.
+function corDefault() {    
+    for(let i = 4; i < quadradosBrancos.length; i++){    
+        quadradosBrancos[i].addEventListener('click', function(){
+            quadradosBrancos[i].style.backgroundColor = quadradosColoridos;
         })
     }    
 }
 
+// Seleciona a cor deseja e muda as cores nas tabelas
+function mudarCor() {
+    let blue = document.querySelector('.blue')
+    let red = document.querySelector('.red')
+    let green = document.querySelector('.green')
+    let black = document.querySelector('.black')
+    
+    for(let i = 0; i < 4; i++){
+        blue.addEventListener('click', function(){
+            quadradosColoridos = "blue"
+        })
+    }
 
+    for(let i = 0; i < 4; i++){
+        red.addEventListener('click', function(){
+            quadradosColoridos = "red"
+        })
+    }
 
+    for(let i = 0; i < 4; i++){
+        green.addEventListener('click', function(){
+            quadradosColoridos = "green"
+        })
+    }
 
+    for(let i = 0; i < 4; i++){
+        black.addEventListener('click', function(){
+            quadradosColoridos = "black"
+        })
+    }
+}
 
-window.onload = gerarQuadrados(), colorirQuadrados()
+gerarQuadrados()
+corDefault()
+mudarCor()
