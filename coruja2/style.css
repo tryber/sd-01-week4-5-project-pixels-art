@@ -12,6 +12,16 @@ h1{
     border: solid thin;
     padding: 0.5rem 0.5rem;
 }
+.div-cores{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.cores{
+    width: 50px;
+    height: 50px;
+    border: 2px solid yellow;
+}
 
 .paleta1{
     background-color: black;
