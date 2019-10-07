@@ -6,9 +6,9 @@
         <link href="pixels-art.css" rel="stylesheet" type="text/css" media="all">
     </head>
     <body>
-        <h1>Pixels Art</h1>
-        <h2>Paleta de Cores</h2>
-        <button onclick="changeCollor()" type="submit" >Square Size</button>
+        <h1 id="main-title"> <span>Pixels Art</h1>
+        <h2 class="subtitles"> <span> Palette of Colors</span></h2>
+        <button class="button" onclick="changeCollor()" type="submit" >Change Palette's Colors</button>
         <div id="select-div">
             <div id="div1"></div>
             <div id="div2"></div>
@@ -20,17 +20,25 @@
             <div id="div8"></div>
             <div id="div9"></div>
             <div id="div10"></div>
+            <div id="black"></div>
         </div>
-        <h2>The Canvas</h2>
+        <h2 class="subtitles"> <span>The Canvas</span></h2>
         <div>
-            <button onclick="tableSize()" type="submit" >Square Size</button>
+            <button class="button" onclick="tableSize()" type="submit">Canvas Size</button>
             <p id="subtittle"></p>
         </div>
+        <div id="canvas">
         <table id="table-pixel-canvas">
             <thead>
                 <th id="table-head"></th>
             </thead>
         </table>
+        </div>
+        <div id="div">
+        <button class="buttonbottom" onclick="tableErase() " type="submit">Erase</button>
+        <button class="buttonbottom" onclick="party() " type="submit">Party</button>
+        <button class="buttonbottom" onclick="perfil() " type="submit">Profile</button>
+        </div>
         <script src="pixels-art.js"></script>
     </body>
 </html>
