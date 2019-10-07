@@ -65,6 +65,7 @@ function mudarCor() {
     })
 }
 
+// Reseta as cores
 function resetarCores() {
     let button = document.querySelector('.btn')
     button.addEventListener('click', function(){
