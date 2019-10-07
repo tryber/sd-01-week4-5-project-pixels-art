@@ -50,3 +50,14 @@ h1{
 .forms ul li{
     display: inline;
 }
+.square{
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border: 1px solid black;
+    display: inline-block;
+}
+table{
+    margin-left: 43.5%;
+    margin-top: 1%;
+}
