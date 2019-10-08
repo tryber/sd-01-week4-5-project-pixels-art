@@ -9,9 +9,9 @@ function randomColor() {
 
 // Coloca cores na paleta
 function colorGenerator() {
-    let c, targets = document.querySelectorAll('.paleta');
-    for (c = 0; c < 4; c++) {
-        targets[c].style.backgroundColor = randomColor()
+    let colorIndex, targets = document.querySelectorAll('.paleta');
+    for (colorIndex = 0; colorIndex < 4; colorIndex++) {
+        targets[colorIndex].style.backgroundColor = randomColor()
     }
 }
 
@@ -32,17 +32,14 @@ function selectColor() {
 
 // Limpa a seleção de cor
 function clearSelected() {
-
     let cores = document.querySelectorAll(".paleta")
 
-    for (i = 0; i < cores.length; i++) {
-        cores[i].style.borderColor = "black";
-        cores[i].style.borderStyle = "solid";
-        cores[i].style.borderWidth = "1px";
+    for (let index = 0; index < cores.length; index++) {
+        cores[index].style.borderColor = "black";
+        cores[index].style.borderStyle = "solid";
+        cores[index].style.borderWidth = "1px";
     }
 }
-
-
 
 var cells = cellIdentifier();
 
@@ -54,9 +51,9 @@ function cellIdentifier() {
 
 // Colore as celulas ao clicar
 function colorCellOnClick() {
-    let i = 0;
-    for (i = 0; i < cells.length; i++) {
-        cells[i].addEventListener('click', function () {
+    let index;
+    for (index = 0; index < cells.length; index++) {
+        cells[index].addEventListener('click', function () {
             this.style.background = color;
         })
     }
@@ -64,13 +61,11 @@ function colorCellOnClick() {
 
 // Limpar todas as celulas
 function clearAll() {
-    let i;
-    for (i = 0; i < cells.length; i++) {
-        cells[i].style.background = "#ffffff";
+    let index;
+    for (index = 0; index < cells.length; index++) {
+        cells[index].style.background = "#ffffff";
     }
 }
-
-
 
 var table = document.getElementsByTagName("table")[0];
 
@@ -113,8 +108,6 @@ function resetTable() {
         table.removeChild(table.firstChild); // Apaga se existir alguma table
     }
 }
-
-
 
 // Faz a paleta aparecer na tela
 function exibePaleta() {
