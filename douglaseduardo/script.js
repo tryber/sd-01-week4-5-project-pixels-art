@@ -2,10 +2,10 @@
 var btn = document.querySelector("#btn")
 var valorCores = ["black","red","blue","green","white"]
 var cor = valorCores[0]
-var cor1 = document.querySelector("#cor1")
-var cor2 = document.querySelector("#cor2")
-var cor3 = document.querySelector("#cor3")
-var cor4 = document.querySelector("#cor4")
+var cor1 = document.querySelector(".preto")
+var cor2 = document.querySelector(".vermelho")
+var cor3 = document.querySelector(".azul")
+var cor4 = document.querySelector(".verde")
 var corMostrada = document.querySelector("#corSelecionada")
 //funçoes btn
 

@@ -1,19 +1,22 @@
 body {
     text-align: center;
 }
+
 #tabela {
     position: fixed;
     left: 42%;
     top: 85px;
 }
+
 th {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     margin: 0px;
     padding: 0px;
     cursor: pointer;
     border: 5px solid;
 }
+
 #corSelecionada{
     position: fixed;
     top: 200px;
@@ -22,6 +25,7 @@ th {
     height: 260px;
     border: 1px solid black;
 }
+
 #canvas{
     position: fixed;
     top: 200px;
@@ -32,6 +36,7 @@ th {
     flex-wrap: wrap;
     align-content: flex-start;
 }
+
 .pixel{
     width: 40px;
     height: 40px;
@@ -45,15 +50,16 @@ th {
 .preto{
     background-color: #000000;
     
-    
 }
 .vermelho{
     background-color: #FF0000;
     
 }
+
 .azul{
     background-color: #0000FF;
 }
+
 .verde {
     background-color: #008000;
 }
@@ -83,14 +89,14 @@ th {
     text-decoration: none;
     vertical-align: middle;
     }
+
     #btn:hover {
     border-top-color: #283578;
     background: #283578;
     color: #cccccc;
     }
+
     #btn:active {
     border-top-color: #de14af;
     background: #de14af;
     }
-
-
