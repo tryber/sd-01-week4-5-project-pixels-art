@@ -6,20 +6,15 @@
 .container{
     display: flex;
     flex-direction: column;
-
     align-items: center;
-    
 }
 
 .divcores{
     display: flex;
     flex-direction: row;
-
     width: 200px;
-
     align-content: center;
     justify-content: flex-start;
-
     margin: 10px;
 }
 
@@ -42,7 +37,6 @@ td{
 
 #btnclear{
     padding: 10px;
-    
 }
 
 #reset{
