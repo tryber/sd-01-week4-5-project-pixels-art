@@ -67,12 +67,8 @@ function pixelHeightWidth(userNumber) {
         userNumber = 50;
     }
     // Verifica se existe uma tabela antes de criar uma nova
-    if (table.hasChildNodes()) {
         resetTable();
         createTable(userNumber);
-    } else {
-        createTable(userNumber);
-    }
 }
 
 function createTable(userNumber) {
