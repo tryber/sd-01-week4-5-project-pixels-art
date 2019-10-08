@@ -6,9 +6,9 @@ function randomColor() {
     return rcolor
 }
 
-// Coloca cores na paleta
+// Coloca cores na pallet
 function colorGenerator() {
-    let colorIndex, targets = document.querySelectorAll('.paleta');
+    let colorIndex, targets = document.querySelectorAll('.pallet');
     for (colorIndex = 0; colorIndex < 4; colorIndex++) {
         targets[colorIndex].style.backgroundColor = randomColor()
     }
@@ -28,7 +28,7 @@ function selectColor() {
 }
 
 function clearSelected() {
-    let palletColor = document.querySelectorAll(".paleta")
+    let palletColor = document.querySelectorAll(".pallet")
 
     for (let index = 0; index < palletColor.length; index++) {
         palletColor[index].style.borderColor = "black";
@@ -101,7 +101,7 @@ function resetTable() {
 }
 
 function showPallet() {
-    document.getElementById('paleta').style.display = "inline-flex";
-    document.getElementById('titlepaleta').style.display = "block";
-    document.getElementById('titleinput').style.display = "none";
+    document.getElementById('pallet').style.display = "inline-flex";
+    document.getElementById('title-pallet').style.display = "block";
+    document.getElementById('title-input').style.display = "none";
 }
