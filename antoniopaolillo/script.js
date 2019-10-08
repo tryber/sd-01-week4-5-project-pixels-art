@@ -1,23 +1,86 @@
+function criarTabelaPeloOnLoad() {
+    var tabelaMae = document.getElementsByClassName("tabelaQueSeraPreenchida")[0];
+    for (let cont = 0; cont < 5; cont++) {
+        let linhas = document.createElement('tr');
+        linhas.setAttribute("class", "elemento");
+        tabelaMae.appendChild(linhas);
+
+        for (let cont1 = 0; cont1 < 5; cont1++) {
+            let elementos = document.createElement('td');
+            elementos.setAttribute("class", "elemento");
+            linhas.appendChild(elementos);
+        }
+
+    }
+    geradorDeCoresParaPaleta()
+    adicionarCor();
+}
+
+function gerandoTamanhoQuadrado() {
+    let contador = document.getElementById("tamanhoquadrado").value;
+    if (contador >= 5 && contador < 51) {
+        var tamanhoDaTabela = document.getElementsByTagName("tr");
+        var segundoContador = tamanhoDaTabela.length - 1;
+        var tabelaApagar = document.getElementsByClassName("tabelaQueSeraPreenchida")[0];
+        //apagando a tabela anterior
+        for (let i = 0; i < segundoContador; i++) {
+            let apagar = tabelaApagar.firstElementChild;
+            tabelaApagar.removeChild(apagar);
+        }
+    }
+    else {
+        alert("O valor passado não está de acordo com o padrão!");
+    }
+    criarTabela(contador, tabelaApagar);
+
+    //chamando a função que muda as cores de acordo com o clique
+    adicionarCor();
+}
+
+function criarTabela(contador, tabelaApagar) {
+    //gerando nova table
+    for (let cont = 0; cont < contador; cont++) {
+        let linhas = document.createElement('tr');
+        linhas.setAttribute("class", "elemento");
+        tabelaApagar.appendChild(linhas);
+
+        for (let cont1 = 0; cont1 < contador; cont1++) {
+            let elementos = document.createElement('td');
+            elementos.setAttribute("class", "elemento");
+            linhas.appendChild(elementos);
+        }
+
+    }
+}
+
 //gerando cores aleatorias
-function geradorDeCores() {
-    for (let i = 0; i < 4; i++) {
-        var cor1 = [];
-        cor1[i] = document.getElementsByClassName("coresfixas")[i];
+function geradorDeCoresParaPaleta() {
+    for (let i = 0; i < 3; i++) {
+        var ElementoDaPaletaDeCores = [];
+        ElementoDaPaletaDeCores[i] = document.getElementsByClassName("coresfixas")[i];
         var simbolos, color;
         simbolos = "0123456789ABCDEF";
-        color = "#";
+        corAleatoriaGerada = "#";
         for (let n = 0; n < 6; n++) {
-            color = color + simbolos[Math.floor(Math.random() * 16)];
+            corAleatoriaGerada = corAleatoriaGerada + simbolos[Math.floor(Math.random() * 16)];
         }
-        cor1[i].style.backgroundColor = color;
-        color = "#";
+        ElementoDaPaletaDeCores[i].style.backgroundColor = corAleatoriaGerada;
     }
+    gerandoCorPreta();
+}
+
+function gerandoCorPreta() {
+    let corPreta = document.getElementsByClassName("coresfixas")[3]
+    corPreta.style.backgroundColor = "black";
+    corPreta.style.borderWidth = "1px";
+    corPreta.style.borderStyle = "solid";
+    corPreta.style.borderColor = "white";
 }
 
 //armazenando a cor ao clique, colocando numa variavel e alterando a cor do mostrador
 var corFinal = "black";
 let corSelecionada = document.getElementsByClassName("corselecionada")[0];
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 4; i++) {
     let corClicada = document.getElementsByClassName("coresfixas")[i];
     corClicada.addEventListener('click', function () {
         corFinal = corClicada.style.backgroundColor;
@@ -34,7 +97,7 @@ function adicionarCor() {
         })
     }
 }
-adicionarCor();
+
 
 //limpando a tela
 function limparTela() {
@@ -44,39 +107,6 @@ function limparTela() {
     }
 }
 
-//mudando o tamanho do quadrado 
-function tamanhoQuadrado() {
-    let contador = document.getElementById("tamanhoquadrado").value;
-    if (contador > 5 && contador < 51) {
-        var tamanhoDaTabela = document.getElementsByTagName("tr");
-        var segundoContador = tamanhoDaTabela.length - 1;
-        var tabelaApagar = document.getElementsByTagName('tbody')[1];
-        //agapando a table
-        for (let i = 0; i < segundoContador; i++) {
-            let apagar = tabelaApagar.firstElementChild;
-            tabelaApagar.removeChild(apagar);
-        }
-        function criar() {
-            //gerando nova table
-            for (let cont = 0; cont < contador; cont++) {
-                var linhas = document.createElement('tr');
-                linhas.setAttribute("class", "elemento");
-                tabelaApagar.appendChild(linhas);
-
-                for (let cont1 = 0; cont1 < contador; cont1++) {
-                    var elementos = document.createElement('td');
-                    elementos.setAttribute("class", "elemento");
-                    linhas.appendChild(elementos);
-                }
-            }
-            //chamando a função que muda as cores de acordo com o clique
-            adicionarCor();
-        }
-    } else {
-        alert("O valor passado não está de acordo com o padrão!");
-    }
-    criar();
-}
 
 //gerando table padrão github
 function github() {
