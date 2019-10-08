@@ -1,3 +1,4 @@
+var elementoDaTabela;
 function criarTabelaPeloOnLoad() {
     var tabelaMae = document.getElementsByClassName("tabelaQueSeraPreenchida")[0];
     for (let cont = 0; cont < 5; cont++) {
@@ -37,12 +38,12 @@ function gerandoTamanhoQuadrado() {
     adicionarCor();
 }
 
-function criarTabela(contador, tabelaApagar) {
+function criarTabela(contador, tabelaGerada) {
     //gerando nova table
     for (let cont = 0; cont < contador; cont++) {
         let linhas = document.createElement('tr');
         linhas.setAttribute("class", "elemento");
-        tabelaApagar.appendChild(linhas);
+        tabelaGerada.appendChild(linhas);
 
         for (let cont1 = 0; cont1 < contador; cont1++) {
             let elementos = document.createElement('td');
@@ -88,29 +89,24 @@ for (let i = 0; i < 4; i++) {
     })
 }
 
-//função criada para ser chamada novamente após mudar a tabela
 function adicionarCor() {
-    let elementoDaTabela2 = document.getElementsByTagName('td');
-    for (i = 0; i < elementoDaTabela2.length; i++) {
-        elementoDaTabela2[i].addEventListener('click', function () {
+    elementoDaTabela = document.getElementsByTagName('td');
+    for (i = 0; i < elementoDaTabela.length; i++) {
+        elementoDaTabela[i].addEventListener('click', function () {
             this.style.background = corFinal;
         })
     }
 }
 
-
-//limpando a tela
-function limparTela() {
-    let elementoDaTabela3 = document.getElementsByTagName('td');
-    for (i = 0; i < elementoDaTabela3.length; i++) {
-        elementoDaTabela3[i].style.background = "white";
+function limparTabela() {
+    elementoDaTabela = document.getElementsByTagName('td');
+    for (i = 0; i < elementoDaTabela.length; i++) {
+        elementoDaTabela[i].style.background = "white";
     }
 }
 
-
-//gerando table padrão github
-function github() {
-    limparTela()
+function gitHubProfile() {
+    limparTabela()
     let tabelaGit = [];
     let tabelaGitTds = [];
 
@@ -128,39 +124,21 @@ function github() {
     for (let n = 1; n < elementosTr2 + 1; n++) {
         tabelaGit[n] = document.getElementsByTagName('tr')[n];
 
-        if (elementosTr2 > 5) {
-            for (let j = 0; j < contador4 / 2; j++) {
 
-                let posicao = elementosTr2 - j - 1;
+        for (let j = 0; j < contador4 / 2; j++) {
 
-                tabelaGitTds[j] = tabelaGit[n].childNodes[j];
-                tabelaGitTds[posicao] = tabelaGit[n].childNodes[posicao];
-                tabelaGitTds[j].value = Math.floor(Math.random() * 2);
+            let posicao = elementosTr2 - j - 1;
 
-                if (tabelaGitTds[j].value == 1) {
-                    tabelaGitTds[j].style.backgroundColor = corFinal;
-                    tabelaGitTds[posicao].style.backgroundColor = corFinal;
-                } else {
-                    tabelaGitTds[j].style.backgroundColor = "white";
-                    tabelaGitTds[posicao].style.backgroundColor = "white";
-                }
-            }
-            //else necessario pois a table gerada no html inicial apresenta 'texts' entre as posições
-        } else {
-            for (let i = 1; i < contador4; i = i + 2) {
+            tabelaGitTds[j] = tabelaGit[n].childNodes[j];
+            tabelaGitTds[posicao] = tabelaGit[n].childNodes[posicao];
+            tabelaGitTds[j].value = Math.floor(Math.random() * 2);
 
-                posicao = elementosTr2 * 2 - i;
-                tabelaGitTds[i] = tabelaGit[n].childNodes[i];
-                tabelaGitTds[posicao] = tabelaGit[n].childNodes[posicao];
-                tabelaGitTds[i].value = Math.floor(Math.random() * 2);
-
-                if (tabelaGitTds[i].value == 1) {
-                    tabelaGitTds[i].style.backgroundColor = corFinal;
-                    tabelaGitTds[posicao].style.backgroundColor = corFinal;
-                } else {
-                    tabelaGitTds[i].style.backgroundColor = "white";
-                    tabelaGitTds[posicao].style.backgroundColor = "white";
-                }
+            if (tabelaGitTds[j].value == 1) {
+                tabelaGitTds[j].style.backgroundColor = corFinal;
+                tabelaGitTds[posicao].style.backgroundColor = corFinal;
+            } else {
+                tabelaGitTds[j].style.backgroundColor = "white";
+                tabelaGitTds[posicao].style.backgroundColor = "white";
             }
         }
     }
