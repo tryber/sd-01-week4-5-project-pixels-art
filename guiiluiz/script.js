@@ -9,7 +9,7 @@ function generateRandomColors() {
 function generateColors() {
     let colorIndex, targets = document.querySelectorAll('.pallet');
     for (colorIndex = 0; colorIndex < 4; colorIndex++) {
-        targets[colorIndex].style.backgroundColor = randomColor()
+        targets[colorIndex].style.backgroundColor = generateRandomColors()
     }
 }
 
@@ -86,7 +86,6 @@ function createTable(userNumber) {
         table.appendChild(tr);
     }
     handleCellColoringOnClick()
-    colorGenerator()
     clearSelected()
     color = "black";
     showPallet()
