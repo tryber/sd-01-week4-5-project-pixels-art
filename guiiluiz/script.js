@@ -41,7 +41,7 @@ function clearSelected() {
     }
 }
 
-var cells = cellIdentifier();
+const cells = cellIdentifier();
 
 // Retorna celulas da matriz
 function cellIdentifier() {
