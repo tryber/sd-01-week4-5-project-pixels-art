@@ -1,4 +1,3 @@
-//cores e variaveis
 var btn = document.querySelector("#btn")
 var valorCores = ["black","red","blue","green","white"]
 var cor = valorCores[0]
@@ -7,7 +6,6 @@ var cor2 = document.querySelector(".vermelho")
 var cor3 = document.querySelector(".azul")
 var cor4 = document.querySelector(".verde")
 var corMostrada = document.querySelector("#corSelecionada")
-//funçoes btn
 
 cor1.addEventListener("click", function(){
     cor = valorCores[0]
@@ -33,7 +31,6 @@ function colorir(){
         celula.addEventListener("click", function(){
         celula.style.backgroundColor = cor})
 }}
-
 
 colorir()
 function resert(){

@@ -24,6 +24,7 @@ th {
     width: 260px;
     height: 260px;
     border: 1px solid black;
+    background-color: #000000;
 }
 
 #canvas{
