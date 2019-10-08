@@ -1,15 +1,16 @@
-#titleinput {
+#title-input {
     display: block;
 }
 
-#titlepaleta {
+#title-pallet {
     display: none;
 }
 
-#paleta {
+#pallet {
     display: none;
 }
-.paleta {
+
+.pallet {
     width: 50px;
     height: 50px;
     border-width: 1px;
