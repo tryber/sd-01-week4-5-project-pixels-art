@@ -14,10 +14,10 @@ function colorGenerator() {
     }
 }
 
-function changeColor(cor) {
-    color = document.querySelector(cor).style.backgroundColor;
+function changeColor(palletId) {
+    color = document.querySelector(palletId).style.backgroundColor;
     clearSelected()
-    selected = document.querySelector(cor)
+    selected = document.querySelector(palletId)
     selectColor()
 }
 
@@ -28,12 +28,12 @@ function selectColor() {
 }
 
 function clearSelected() {
-    let cores = document.querySelectorAll(".paleta")
+    let palletColor = document.querySelectorAll(".paleta")
 
-    for (let index = 0; index < cores.length; index++) {
-        cores[index].style.borderColor = "black";
-        cores[index].style.borderStyle = "solid";
-        cores[index].style.borderWidth = "1px";
+    for (let index = 0; index < palletColor.length; index++) {
+        palletColor[index].style.borderColor = "black";
+        palletColor[index].style.borderStyle = "solid";
+        palletColor[index].style.borderWidth = "1px";
     }
 }
 
@@ -44,7 +44,7 @@ function cellIdentifier() {
     return cells;
 }
 
-function colorCellOnClick() {
+function handleCellColoringOnClick() {
     let index;
     for (index = 0; index < cells.length; index++) {
         cells[index].addEventListener('click', function () {
@@ -87,11 +87,11 @@ function createTable(userNumber) {
         }
         table.appendChild(tr);
     }
-    colorCellOnClick()
+    handleCellColoringOnClick()
     colorGenerator()
     clearSelected()
     color = "black";
-    exibePaleta()
+    showPallet()
 }
 
 function resetTable() {
@@ -100,7 +100,7 @@ function resetTable() {
     }
 }
 
-function exibePaleta() {
+function showPallet() {
     document.getElementById('paleta').style.display = "inline-flex";
     document.getElementById('titlepaleta').style.display = "block";
     document.getElementById('titleinput').style.display = "none";
