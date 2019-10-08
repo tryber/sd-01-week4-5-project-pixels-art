@@ -62,26 +62,26 @@ function clearAll() {
 
 var table = document.getElementsByTagName("table")[0];
 
-function pixelHeightWidth(n) {
-    if (n < 5) {
-        n = 5;
-    } else if (n > 50) {
-        n = 50;
+function pixelHeightWidth(userNumber) {
+    if (userNumber < 5) {
+        userNumber = 5;
+    } else if (userNumber > 50) {
+        userNumber = 50;
     }
     // Verifica se existe uma tabela antes de criar uma nova
     if (table.hasChildNodes()) {
         resetTable();
-        createTable(n);
+        createTable(userNumber);
     } else {
-        createTable(n);
+        createTable(userNumber);
     }
 }
 
-function createTable(n) {
+function createTable(userNumber) {
     let tr, td, row, cell;
-    for (row = 0; row < n; row++) {
+    for (row = 0; row < userNumber; row++) {
         tr = document.createElement('tr');
-        for (cell = 0; cell < n; cell++) {
+        for (cell = 0; cell < userNumber; cell++) {
             td = document.createElement('td');
             tr.appendChild(td);
         }
