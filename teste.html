@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Pixel Art</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<body onload="randomColor()">
+    <div class="container-fluid text-center">
+        <div class="row content">
+            <div class="col-sm-2 sidenav">
+            </div>
+            <div class="col-sm-8">
+                <h1>Arte com Pixels</h1>
+                <hr>
+                <h3 id="titlepaleta">Paleta de Cores</h3>
+
+                <!-- PALETA DE CORES -->
+                <div id="paleta" style="display: none">
+                    <div id="paleta1" class="paleta" onclick="changeColor('#paleta1')"></div>
+                    <div id="paleta2" class="paleta" onclick="changeColor('#paleta2')"></div>
+                    <div id="paleta3" class="paleta" onclick="changeColor('#paleta3')"></div>
+                    <div id="paleta4" class="paleta" onclick="changeColor('#paleta4')"></div>
+                </div>
+
+                <center>
+                    <!-- INPUT -->
+                    <h3 id="titleinput">Crie sua Tabela</h3>
+                    <input id="userpixel" type="number"
+                        placeholder="Digite o valor da altura e da largura (min 5 e max 50)"
+                        style="text-align: center;width:350px" onblur="pixelHeightWidth(this.value)">
+
+                    <!-- TABELA -->
+                    <table></table>
+                </center>
+
+                <!-- Botão Limpar -->
+                <div style="margin-top: 1%">
+                    <button onclick="clearAll()">Limpar</button>
+                </div>
+
+            </div>
+            <div class="col-sm-2 sidenav">
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>
