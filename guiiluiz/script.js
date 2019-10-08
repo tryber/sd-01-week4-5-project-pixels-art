@@ -1,7 +1,6 @@
 var color = "black";
 var selected;
 
-// Gera uma cor aleatória
 function randomColor() {
     let rcolor = '#' + (0x1000000 + Math.random() * 0xFFFFFF).toString(16).substr(1, 6);
     return rcolor
@@ -15,7 +14,6 @@ function colorGenerator() {
     }
 }
 
-// Mudar cor selecionada
 function changeColor(cor) {
     color = document.querySelector(cor).style.backgroundColor;
     clearSelected()
@@ -23,14 +21,12 @@ function changeColor(cor) {
     selectColor()
 }
 
-// Destaca a cor selecionada
 function selectColor() {
     selected.style.borderColor = "white"
     selected.style.borderStyle = "dashed"
     selected.style.borderWidth = "3px"
 }
 
-// Limpa a seleção de cor
 function clearSelected() {
     let cores = document.querySelectorAll(".paleta")
 
@@ -43,13 +39,11 @@ function clearSelected() {
 
 const cells = cellIdentifier();
 
-// Retorna celulas da matriz
 function cellIdentifier() {
     let cells = document.getElementsByTagName('td');
     return cells;
 }
 
-// Colore as celulas ao clicar
 function colorCellOnClick() {
     let index;
     for (index = 0; index < cells.length; index++) {
@@ -59,7 +53,6 @@ function colorCellOnClick() {
     }
 }
 
-// Limpar todas as celulas
 function clearAll() {
     let index;
     for (index = 0; index < cells.length; index++) {
@@ -69,13 +62,13 @@ function clearAll() {
 
 var table = document.getElementsByTagName("table")[0];
 
-// Verifica se existe uma tabela antes de criar uma nova
 function pixelHeightWidth(n) {
     if (n < 5) {
         n = 5;
     } else if (n > 50) {
         n = 50;
     }
+    // Verifica se existe uma tabela antes de criar uma nova
     if (table.hasChildNodes()) {
         resetTable();
         createTable(n);
@@ -84,7 +77,6 @@ function pixelHeightWidth(n) {
     }
 }
 
-// Gera uma tabela de acordo com o número digitado pelo usuário
 function createTable(n) {
     let tr, td, row, cell;
     for (row = 0; row < n; row++) {
@@ -102,14 +94,12 @@ function createTable(n) {
     exibePaleta()
 }
 
-// Apaga se existir alguma tabela
 function resetTable() {
     while (table.hasChildNodes()) {
-        table.removeChild(table.firstChild); // Apaga se existir alguma table
+        table.removeChild(table.firstChild); // Apaga se existir alguma tabela
     }
 }
 
-// Faz a paleta aparecer na tela
 function exibePaleta() {
     document.getElementById('paleta').style.display = "inline-flex";
     document.getElementById('titlepaleta').style.display = "block";
