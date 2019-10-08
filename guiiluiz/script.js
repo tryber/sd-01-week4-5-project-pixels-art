@@ -40,8 +40,7 @@ function clearSelected() {
 const cells = cellIdentifier();
 
 function cellIdentifier() {
-    let cells = document.getElementsByTagName('td');
-    return cells;
+    return document.getElementsByTagName('td');
 }
 
 function handleCellColoringOnClick() {
