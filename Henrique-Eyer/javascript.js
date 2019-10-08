@@ -27,42 +27,45 @@ avatar.addEventListener('click', function (){
 
 //Criando função para criar o avatar do git hub
 function github(){
-
-    var meio;
-
-    clearALL();
-    
-    //if para pegar se é par ou impar e pegar a metade do tamanho
-    if(tamanho.value%2==0){
-        meio=tamanho.value/2;
-    }else{
-        meio=tamanho.value/2+0.5;
-    }
-    
-    //variaveis de controle
-    let i;
-    let j;
-    let j2=tamanho.value-1;//J2 para começar no final da linha
-    
-    //for para percorrer a matriz 
-    for(i=0;i<tamanho.value; i++){
-
-        for(j=0;j<meio;j++,j2--){
-
-            let pos=document.getElementById(i+","+j)
-            let pos2=document.getElementById(i+","+j2)
-            let aleatório=Math.floor(Math.random() * 2);
-            
-            if(aleatório==1){
-                pos.style.background=selectcor;
-                pos2.style.background=selectcor;
-            }
+    let tamanho_matriz=document.getElementsByTagName('tr');
+    if(tamanho_matriz.length!=0){
+        var meio;
+        
+        clearALL();
+        
+        //if para pegar se é par ou impar e pegar a metade do tamanho
+        if(tamanho.value%2==0){
+            meio=tamanho.value/2;
+        }else{
+            meio=tamanho.value/2+0.5;
         }
-        j2=tamanho.value-1;
-}
+        
+        //variaveis de controle
+        let i;
+        let j;
+        let j2=tamanho.value-1;//J2 para começar no final da linha
+        
+        //for para percorrer a Fmatriz 
+        for(i=0;i<tamanho.value; i++){
+            
+            for(j=0;j<meio;j++,j2--){
+                
+                let pos=document.getElementById(i+","+j)
+                let pos2=document.getElementById(i+","+j2)
+                let aleatório=Math.floor(Math.random() * 2);
+                
+                if(aleatório==1){
+                    pos.style.background=selectcor;
+                    pos2.style.background=selectcor;
+                }
+            }
+            j2=tamanho.value-1;
+        }
+    }
 }
 //Adicionando ao input o evento change e quando ele mudar ele gera a matriz.
 tamanho.addEventListener('change',function(){
+    delete_matriz();
     GeraMatriz(tamanho.value);
 })
 
@@ -83,34 +86,31 @@ function GeraMatriz(tamanho){
             cel.id=i+","+j;
             
             linha.appendChild(cel)
-           
+            
         }
     }
     
     
     funcparamatriz(pegaMatriz());
-    disable();
+    
 }
-//funcao para disabilitar o campo input de tamanho
-function disable(){
-    document.getElementById("tamanho").disabled = true;
-}
-//funcao para habilita o campo input de tamanho
-function enable(){
-    document.getElementById("tamanho").disabled = false;
-}
-
 
 //adicionando um evento de clica ao botao.
 //funcao serve para deletar a Matriz
 reset.addEventListener('click', function(){
+    
+    delete_matriz();
+})
+
+function delete_matriz(){
     let i;
-    for(i=0;i<tamanho.value;i++){
+    let element=document.getElementsByTagName('tr');
+    let tam=element.length
+    for(i=0;i<tam;i++){
         let childtable=table.firstElementChild
         table.removeChild(childtable);
     }
-    enable();
-})
+}
 
 
 //funcao pega a matriz e retorna todos os elementos td
