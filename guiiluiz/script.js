@@ -1,13 +1,12 @@
 var color = "black";
 var selected;
 
-function randomColor() {
+function generateRandomColors() {
     let rcolor = '#' + (0x1000000 + Math.random() * 0xFFFFFF).toString(16).substr(1, 6);
     return rcolor
 }
 
-// Coloca cores na pallet
-function colorGenerator() {
+function generateColors() {
     let colorIndex, targets = document.querySelectorAll('.pallet');
     for (colorIndex = 0; colorIndex < 4; colorIndex++) {
         targets[colorIndex].style.backgroundColor = randomColor()
