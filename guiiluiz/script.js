@@ -3,7 +3,7 @@ var selected;
 
 // Gera uma cor aleatória
 function randomColor() {
-    rcolor = '#' + (0x1000000 + Math.random() * 0xFFFFFF).toString(16).substr(1, 6);
+    let rcolor = '#' + (0x1000000 + Math.random() * 0xFFFFFF).toString(16).substr(1, 6);
     return rcolor
 }
 
