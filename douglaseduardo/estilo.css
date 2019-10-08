@@ -26,15 +26,15 @@ th {
     position: fixed;
     top: 200px;
     left: 43%;
-    width: 260px;
-    height: 260px;
+    width: 250px;
+    height: 250px;
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
 }
 .pixel{
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     margin: 0px;
     padding: 0px;
     cursor: pointer;
