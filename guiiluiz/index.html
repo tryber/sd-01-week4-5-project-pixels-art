@@ -23,7 +23,7 @@
                 <h3 id="title-pallet">Paleta de Cores</h3>
 
                 <div id="pallet">
-                    <div id="pallet0" onclick="changeColor('#pallet0')"></div>
+                    <div id="pallet0" class="pallet" onclick="changeColor('#pallet0')"></div>
                     <div id="pallet1" class="pallet" onclick="changeColor('#pallet1')"></div>
                     <div id="pallet2" class="pallet" onclick="changeColor('#pallet2')"></div>
                     <div id="pallet3" class="pallet" onclick="changeColor('#pallet3')"></div>
@@ -32,7 +32,7 @@
 
                 <center>
                     <h3 id="title-input">Crie sua Tabela</h3>
-                    <input id="userpixel" type="number"
+                    <input type="number"
                         placeholder="Digite o valor da altura e da largura (min 5 e max 50)"
                         style="text-align: center;width:350px" onblur="pixelHeightWidth(this.value)">
 
