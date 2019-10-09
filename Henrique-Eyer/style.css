@@ -9,16 +9,17 @@
     align-items: center;
 }
 
-.divcores{
+.divcolors{
     display: flex;
     flex-direction: row;
     width: 200px;
     align-content: center;
     justify-content: flex-start;
+
     margin: 10px;
 }
 
-div.cores{
+div.color{
     margin: 4px;
     border: 2px solid black;
     width: 40px;
@@ -37,6 +38,7 @@ td{
 
 #btnclear{
     padding: 10px;
+    
 }
 
 #reset{
@@ -47,6 +49,6 @@ td{
     padding: 10px;
 }
 
-#tamanho{
+#size{
     width:50px;
 }

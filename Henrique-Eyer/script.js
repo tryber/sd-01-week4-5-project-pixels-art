@@ -1,17 +1,17 @@
 
-var celulas=pegaMatriz();
-var btnclear=document.getElementById("btnclear");
-var tamanho=document.getElementById('tamanho');
+var cell=getMatriz();
+var btnClear=document.getElementById("btnClear");
+var size=document.getElementById('size');
 var table=document.querySelector('table');
-var selectcor="black";
-var cores=document.getElementById('cor1');
+var corSelect="black";
+var colors=document.getElementById('color1');
 var reset=document.getElementById('reset');
 var avatar=document.getElementById("avatar");
 
 window.addEventListener('load', function (){
-    selectcor=document.getElementById('cor1').style.background;
-    disablemargem(document.getElementById('cor1'));  
-    GeraMatriz(5);
+    corSelect=document.getElementById('color1').style.background;
+    disableMarge(document.getElementById('color1'));  
+    create_Matriz(5);
 })
 
 avatar.addEventListener('click', function (){
@@ -19,51 +19,51 @@ avatar.addEventListener('click', function (){
 });
 
 function github(){
-    let tamanho_matriz=document.getElementsByTagName('tr');
-    if(tamanho_matriz.length!=0){
-        var meio;
-        clearALL();
-        if(tamanho.value%2==0){
-            meio=tamanho.value/2;
+    let size_matriz=document.getElementsByTagName('tr');
+    if(size_matriz.length!=0){
+        var mid_of_matriz;
+        clearAll();
+        if(size.value%2==0){
+            mid_of_matriz=size.value/2;
         }else{
-            meio=tamanho.value/2+0.5;
+            mid_of_matriz=size.value/2+0.5;
         }
-        let i;
-        let j;
-        let j2=tamanho.value-1;
-        for(i=0;i<tamanho.value; i++){
-            for(j=0;j<meio;j++,j2--){
-                let pos=document.getElementById(i+","+j)
-                let pos2=document.getElementById(i+","+j2)
-                let aleatório=Math.floor(Math.random() * 2);
-                if(aleatório==1){
-                    pos.style.background=selectcor;
-                    pos2.style.background=selectcor;
+        let line_number;
+        let cell_left;
+        let cell_right=size.value-1;
+        for(line_number=0;line_number<size.value; line_number++){
+            for(cell_left=0;cell_left<mid_of_matriz;cell_left++,cell_right--){
+                let position_cell_left=document.getElementById(line_number+","+cell_left)
+                let position_cell_right=document.getElementById(line_number+","+cell_right)
+                let random=Math.floor(Math.random() * 2);
+                if(random==1){
+                    position_cell_left.style.background=corSelect;
+                    position_cell_right.style.background=corSelect;
                 }
             }
-            j2=tamanho.value-1;
+            cell_right=size.value-1;
         }
     }
 }
 
-tamanho.addEventListener('change',function(){
+size.addEventListener('blur',function(){
     delete_matriz();
-    GeraMatriz(tamanho.value);
+    create_Matriz(size.value);
 })
 
-function GeraMatriz(tamanho){
-    var i;
-    var j;
-    for(i=0;i<tamanho;i++){
+function create_Matriz(size){
+    let line;
+    let cell;
+    for(line=0;line<size;line++){
         let linha=document.createElement("tr")
         table.appendChild(linha);
-        for(j=0;j<tamanho;j++){
+        for(cell=0;cell<size;cell++){
             let cel=document.createElement('td')
-            cel.id=i+","+j;
+            cel.id=line+","+cell;
             linha.appendChild(cel)  
         }
     } 
-    funcparamatriz(pegaMatriz());
+    Add_event_click_cells(getMatriz());
     
 }
 
@@ -82,64 +82,64 @@ function delete_matriz(){
     }
 }
 
-function pegaMatriz(){
-    let celulas=document.getElementsByTagName('td');
-    return celulas;
+function getMatriz(){
+    let cell=document.getElementsByTagName('td');
+    return cell;
 }
 
-cores.style.background='black';
-cores.addEventListener('click', function(){
-    selectcor=this.style.background;
-    disablemargem(this);
+colors.style.background='black';
+colors.addEventListener('click', function(){
+    corSelect=this.style.background;
+    disableMarge(this);
 })
 
-function disablemargem(item){
+function disableMarge(item){
     let i=0;
     for(i=1;i<5;i++){
-        let allcores=document.getElementById('cor'+i);
-        allcores.style.boxShadow="";
+        let allcolors=document.getElementById('color'+i);
+        allcolors.style.boxShadow="";
     }
     
     item.style.boxShadow=" 4px 4px "+item.style.background
     
 }
 
-function gera_cor(){
+function gera_color(){
     var hexadecimais = '0123456789ABCDEF';
-    var cor = '#';
+    var color = '#';
 
     for (var i = 0; i < 6; i++ ) {
 
-        cor += hexadecimais[Math.floor(Math.random() * 16)];
+        color += hexadecimais[Math.floor(Math.random() * 16)];
     }
-    return cor;
+    return color;
 }
 
 for(i=2;i<5;i++){
-    var cores=document.getElementById('cor'+i);
-    cores.style.background=gera_cor();
-    cores.addEventListener('click', function(){
-        selectcor=this.style.background;
-        disablemargem(this);
+    var colors=document.getElementById('color'+i);
+    colors.style.background=gera_color();
+    colors.addEventListener('click', function(){
+        corSelect=this.style.background;
+        disableMarge(this);
     })
 }
 
-function funcparamatriz(celulas){
-    for(i=0;i<celulas.length;i++){
-        celulas[i].addEventListener('click', function (){
-            this.style.background=selectcor;
+function Add_event_click_cells(cell){
+    for(i=0;i<cell.length;i++){
+        cell[i].addEventListener('click', function (){
+            this.style.background=corSelect;
         })
     }
 }
 
-function clearALL(){
+function clearAll(){
     let i;
-    for(i=0;i<celulas.length;i++){
-        celulas[i].style.background="#ffffff"; 
+    for(i=0;i<cell.length;i++){
+        cell[i].style.background="#ffffff"; 
     }
 }
 
-btnclear.addEventListener('click', function(){
+btnClear.addEventListener('click', function(){
     clearALL();
 })
 
