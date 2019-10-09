@@ -35,14 +35,21 @@ function github(){
             for(cell_left=0;cell_left<mid_of_matriz;cell_left++,cell_right--){
                 let position_cell_left=document.getElementById(line_number+","+cell_left)
                 let position_cell_right=document.getElementById(line_number+","+cell_right)
-                let random=Math.floor(Math.random() * 2);
-                if(random==1){
-                    position_cell_left.style.background=corSelect;
-                    position_cell_right.style.background=corSelect;
-                }
+                dye_cell_or_not(position_cell_left,position_cell_right);
+                
             }
             cell_right=size.value-1;
         }
+    }
+    
+}
+
+
+function dye_cell_or_not(element_left,element_right){
+    let random=Math.floor(Math.random() * 2);
+    if(random==1){
+        element_left.style.background=corSelect;
+        element_right.style.background=corSelect;
     }
 }
 
@@ -107,9 +114,9 @@ function disableMarge(item){
 function gera_color(){
     var hexadecimais = '0123456789ABCDEF';
     var color = '#';
-
+    
     for (var i = 0; i < 6; i++ ) {
-
+        
         color += hexadecimais[Math.floor(Math.random() * 16)];
     }
     return color;
