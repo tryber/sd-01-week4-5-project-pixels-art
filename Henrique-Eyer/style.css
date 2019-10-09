@@ -9,7 +9,7 @@
     align-items: center;
 }
 
-.divcolors{
+.div-colors{
     display: flex;
     flex-direction: row;
     width: 200px;
@@ -31,12 +31,12 @@ table{
 }
 
 td{
-    border: 2px solid black;
+    border: 1px solid black;
     width: 40px;
     height: 40px;
 }
 
-#btnclear{
+#btn-clear{
     padding: 10px;
     
 }

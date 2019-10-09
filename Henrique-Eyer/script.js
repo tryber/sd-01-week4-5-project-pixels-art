@@ -1,6 +1,6 @@
 
 var cell=getMatriz();
-var btnClear=document.getElementById("btnClear");
+var btnClear=document.getElementById("btn-Clear");
 var size=document.getElementById('size');
 var table=document.querySelector('table');
 var corSelect="black";
@@ -147,6 +147,6 @@ function clearAll(){
 }
 
 btnClear.addEventListener('click', function(){
-    clearALL();
+    clearAll();
 })
 
