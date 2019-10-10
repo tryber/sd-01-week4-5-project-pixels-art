@@ -14,9 +14,21 @@ h1 {
     overflow: auto;
 }
 .container-paleta {
+    display: inline-block;
+    top: 20%;
+    margin-bottom: 35px;
+    width: 200px;
+    background-color: black;
+    text-align: center;
+    color: white;
+    padding: 10px;
+    font-weight: 800;
+}
+
+.menu-adicional {
     position: absolute;
-    left:10px;
-    top: 200px;
+    left: 5%;
+    top: 40%;
     height: auto;
     margin-bottom: 35px;
     max-width: 200px;
@@ -26,7 +38,6 @@ h1 {
     padding: 10px;
     font-weight: 800;
 }
-
 .cores-paleta {
     position: relative;
     display: inline-block;
@@ -43,7 +54,6 @@ h1 {
 
 .container-tabela {
     display: inline-block;
-    margin-left: 30%;
     margin-right: 20px;
     background-color: black
 }
