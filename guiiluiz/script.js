@@ -7,9 +7,10 @@ function generateRandomColors() {
 }
 
 function generateColors() {
+    clearSelected()
     document.getElementById("pallet0").style.backgroundColor = "black";
     let colorIndex, targets = document.querySelectorAll('.pallet');
-    for (colorIndex = 1; colorIndex < 5; colorIndex++) {
+    for (colorIndex = 1; colorIndex < 4; colorIndex++) {
         targets[colorIndex].style.backgroundColor = generateRandomColors()
     }
 }
