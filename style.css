@@ -92,7 +92,7 @@ tr{
     border: 1px solid white;
 }
 
-.btn-github {
+.btn-github,.btn-aleatorizar {
     border: 1px solid white;
     margin: 10px 0px;
 };

@@ -57,7 +57,6 @@ function pegaCores() {
     for (cor of paletaCor) {
         cor.addEventListener("click", function () {
             let corSelecionada = this.childNodes[2]
-            console.log(corSelecionada)
             corAtual = getComputedStyle(corSelecionada).backgroundColor;
         })
     }
@@ -91,10 +90,8 @@ function tamanhoCustomizado() {
     inputTamanho.addEventListener("change", function () {
         if (inputTamanho.value >= 5 && inputTamanho.value <= 50) {
             document.querySelector(".tabela-pixel").remove();
-            let pixelArray = criaTabela(inputTamanho.value);
-            console.log(pixelArray)
+            pixelArray = criaTabela(inputTamanho.value);
             funcaoPintar();
-            pintarTabela(pixelArray);
             coresAleatorias(pixelArray);
             resetar(pixelArray)
             let corAtiva = document.querySelector("[class*='ativa']")
@@ -145,15 +142,21 @@ function aleatorizarPaleta(){
         let containerCor = document.getElementById("color"+c);
         containerCor.appendChild(novaCorAleatoria);
     }  
+    coresAleatorias(pixelArray)
 }    
-aleatorizarPaleta();
+
+function botaoAleatorizar() {
+let btnAleatorizar=document.querySelector(".btn-aleatorizar");
+btnAleatorizar.addEventListener("click", aleatorizarPaleta);
+}
+botaoAleatorizar();
 
 function coresAleatorias(arrayTabela) {
-    let paletaCor = document.querySelectorAll(".btn-container");
+    let paletaCor = document.querySelectorAll(".cores-paleta");
     for (pixels of arrayTabela) {
         for (let cor of paletaCor) {
-            let idRandom = (cor.id.slice(0, -1)) + (Math.floor(Math.random() * 4) + 1);
-            let corSelecionada = document.querySelector("." + idRandom);
+            let idRandom = (Math.floor(Math.random() * 4) + 1);
+            let corSelecionada = document.querySelector(".cores-paleta.color"+idRandom);
             let corAtual = getComputedStyle(corSelecionada).backgroundColor;
             pixels.style.backgroundColor = corAtual;
         }
