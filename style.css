@@ -37,7 +37,7 @@ h1 {
     font-weight: 800;
 }
 
-.paleta-colors {
+.cores-paleta {
     position: relative;
     display: inline-block;
     width: 15px;
@@ -51,7 +51,7 @@ h1 {
 .color4 {background-color: goldenrod;}
 
 
-.container-table {
+.container-tabela {
     position: relative;
     display: inline-block;
     margin-right: auto;
@@ -73,14 +73,14 @@ td {
     width: 30px;
     padding: 10px 5px 5px 5px;
 }
-.active {
+.ativa {
     background-color: #D1CA98;
 }
-.active-hover {
+.ativa-hover {
     background-color: #D1CA98;
 }
 
-.input-tablesize {
+.input-tamanho {
     width: 20px;
 }
 
