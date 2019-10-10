@@ -13,8 +13,8 @@ function criaColunas(i,j,arrayTabela) {
 
 function criaTabela(linhasXColunas) {
     let arrayTabela=[];
-    let tabelaContainer = document.querySelector(".container-tabela"),
-    tabela = document.createElement("table");
+    let tabelaContainer = document.querySelector(".container-tabela");
+    let tabela = document.createElement("table");
     tabela.className="tabela-pixel"
     tabela.style.borderSpacing="0px"
     tabela.style.outline="1px solid black"
@@ -29,48 +29,58 @@ function criaTabela(linhasXColunas) {
     return arrayTabela
 }
 
-let carregaArray = criaTabela(5)
+let pixelArray = criaTabela(5)
 
 //atribuindo função à paleta, que armazena a cor numa variavel
 //Bonus 1 - adicionar class "ativa" para cor ativa
-
-let paletaCor = document.querySelectorAll(".btn-container"),
-corAtual="black";
-for (let cores of paletaCor) {
-    //configurando classe ativa ligar e desligar apenas nos eventos corretos, ou seja, quando tem
-    //a classe ativa-hover e não a ativa definitiva, que só é setada através do clique.
-    cores.addEventListener("mouseover", function() {
-        this.className+=" ativa-hover";
-    });
-        cores.addEventListener("mouseleave", function() {
-                                                            //importante o espaço no final dessa class
-            if(this.className.includes("ativa-hover") && !(this.className.includes("ativa ")) ) {
-            this.className="btn-container";   
+let paletaCor = document.querySelectorAll(".btn-container");
+function novaPaleta() {
+        for (let cores of paletaCor) {
+            cores.addEventListener("mouseover", function() {
+                this.className+=" ativa-hover";
+            });
+            cores.addEventListener("mouseleave", function() {
+                if(this.className.includes("ativa-hover") && !(this.className.includes("ativa ")) ) {
+                    this.className="btn-container";   
             }         
-    }); 
-
-    cores.addEventListener("click", function () {
-        let corSelecionada  = document.querySelector("."+this.id);
-        corAtual = getComputedStyle(corSelecionada).backgroundColor;
-        //atribui class ativa à div pai
-        
-        for (cor of paletaCor) {
-            cor.className="btn-container";
-        }
-        this.className+=" ativa";
-    })
+            }); 
+            cores.addEventListener("click", function () {
+            //atribui class active à div pai
+            for (cor of paletaCor) {
+                cor.className="btn-container";
+            }
+                this.className+=" ativa";  
+               // return corAtual
+        })
+    }
 }
+novaPaleta();
 
+//console.log (corSelecionada)
 //atribuindo função de pintar a tabela de pixel
-function pintarTabela(arrayTabela) {
-for (pixel of arrayTabela) {
+    function pegaCores() {
+        let paletaCor = document.querySelectorAll(".btn-container");
+        for (cor of paletaCor) {
+            cor.addEventListener("click", function () {
+                let corSelecionada = this.childNodes[0]
+                console.log(corSelecionada)
+                corAtual = getComputedStyle(corSelecionada).backgroundColor;
+            })
+        }
+    }
+function pintarTabela() {
+    let pixelArray = document.querySelectorAll("td");
+    for (pixel of pixelArray) {
         pixel.addEventListener("click", function() {
             this.style.backgroundColor=corAtual;
         })
     };
 }
-pintarTabela(carregaArray);
-
+function funcaoPintar() {
+    pegaCores();
+    pintarTabela();
+}
+funcaoPintar();
 //resetar quadro - Bonus #2
 function resetar(arrayTabela) {
     let reset = document.querySelector(".reset");
@@ -80,18 +90,19 @@ function resetar(arrayTabela) {
         }
     });
 }
-resetar(carregaArray)
+resetar(pixelArray)
 
 //setar tamanho customizado: Bonus #3
 function tamanhoCustomizado(){
     let inputTamanho = document.querySelector(".input-tamanho");
     inputTamanho.addEventListener("change", function() {
         document.querySelector(".tabela-pixel").remove();
-        carregaArray = criaTabela(inputTamanho.value);
-        console.log(carregaArray)
-        pintarTabela(carregaArray);
-        coresAleatorias(carregaArray);
-        resetar(carregaArray)
+        let pixelArray = criaTabela(inputTamanho.value);
+        console.log(pixelArray)
+        funcaoPintar();
+        pintarTabela(pixelArray);
+        coresAleatorias(pixelArray);
+        resetar(pixelArray)
     });
 }
 tamanhoCustomizado();
@@ -108,18 +119,20 @@ function coresAleatorias(arrayTabela) {
         let idRandom = ( cor.id.slice(0,-1)) + (Math.floor(Math.random() * 4)+1) ;
         //captura o valor de backgroundColor das divs de cada botão
         let corSelecionada = document.querySelector("."+idRandom);
-        corAtual = getComputedStyle(corSelecionada).backgroundColor;
+        let corAtual = getComputedStyle(corSelecionada).backgroundColor;
         //aplica a cada pixel que esteja endo itnerpolado.            
         pixels.style.backgroundColor=corAtual;
         }
     }
+    corAtual="black";
 }
-coresAleatorias(carregaArray);
+coresAleatorias(pixelArray);
 
 let btnAlien = document.querySelector(".btn-github");
 btnAlien.addEventListener("click", gitHub);
 function gitHub() {  
-        let tamanhoTabela = Math.sqrt(carregaArray.length);
+        let pixelArray = document.querySelectorAll("td");
+        let tamanhoTabela = Math.sqrt(pixelArray.length);
         let metadeTabela = tamanhoTabela/2;
             //Esta seção é responsável por "espelhar" o quadro.
         for (let x = 0; x<tamanhoTabela ; x++) {
