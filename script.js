@@ -56,7 +56,7 @@ function pegaCores() {
     let paletaCor = document.querySelectorAll(".btn-container");
     for (cor of paletaCor) {
         cor.addEventListener("click", function () {
-            let corSelecionada = this.childNodes[1]
+            let corSelecionada = this.childNodes[2]
             console.log(corSelecionada)
             corAtual = getComputedStyle(corSelecionada).backgroundColor;
         })
@@ -89,38 +89,24 @@ resetar(pixelArray)
 function tamanhoCustomizado() {
     let inputTamanho = document.querySelector(".input-tamanho");
     inputTamanho.addEventListener("change", function () {
-        if (inputTamanho.value >= 5 && inputTamanho.value<=50) {
-        document.querySelector(".tabela-pixel").remove();
-        let pixelArray = criaTabela(inputTamanho.value);
-        console.log(pixelArray)
-        funcaoPintar();
-        pintarTabela(pixelArray);
-        coresAleatorias(pixelArray);
-        resetar(pixelArray)
-        let corAtiva = document.querySelector("[class*='ativa']")
-        corAtiva.className="btn-container"
-        let paletaCor = document.querySelectorAll(".btn-container");
-        paletaCor[0].className+=" ativa"
+        if (inputTamanho.value >= 5 && inputTamanho.value <= 50) {
+            document.querySelector(".tabela-pixel").remove();
+            let pixelArray = criaTabela(inputTamanho.value);
+            console.log(pixelArray)
+            funcaoPintar();
+            pintarTabela(pixelArray);
+            coresAleatorias(pixelArray);
+            resetar(pixelArray)
+            let corAtiva = document.querySelector("[class*='ativa']")
+            corAtiva.className = "btn-container"
+            let paletaCor = document.querySelectorAll(".btn-container");
+            paletaCor[0].className += " ativa"
         } else {
             alert("Valores permitidos: de 5 a 50.")
         }
     });
 }
 tamanhoCustomizado();
-
-function coresAleatorias(arrayTabela) {
-    let paletaCor = document.querySelectorAll(".btn-container");
-    for (pixels of arrayTabela) {
-        for (let cor of paletaCor) {
-            let idRandom = (cor.id.slice(0, -1)) + (Math.floor(Math.random() * 4) + 1);
-            let corSelecionada = document.querySelector("." + idRandom);
-            let corAtual = getComputedStyle(corSelecionada).backgroundColor;
-            pixels.style.backgroundColor = corAtual;
-        }
-    }
-    corAtual = "black";
-}
-coresAleatorias(pixelArray);
 
 let btnAlien = document.querySelector(".btn-github");
 btnAlien.addEventListener("click", gitHub);
@@ -137,3 +123,41 @@ function gitHub() {
         antiPixel.style.backgroundColor = corAtual;
     }
 }
+function corAleatoria(){
+    let vermelho = Math.floor(Math.random()*256);
+    let verde = Math.floor(Math.random()*256);
+    let azul = Math.floor(Math.random()*256);
+    let corPaletaAleatoria = "rgb("+vermelho+","+verde+","+azul+")";
+    return corPaletaAleatoria
+}
+
+function aleatorizarPaleta(){
+    let coresPaleta = document.querySelectorAll(".cores-paleta");
+    for (cor of coresPaleta) {
+        cor.remove();
+    }
+    for(let c = 1; c<=4; c++){
+        let corPaletaAleatoria = corAleatoria();
+        let novaCorAleatoria = document.createElement("div");
+        novaCorAleatoria.className="cores-paleta";
+        novaCorAleatoria.className+=" color"+c;
+        novaCorAleatoria.style.backgroundColor=corPaletaAleatoria;
+        let containerCor = document.getElementById("color"+c);
+        containerCor.appendChild(novaCorAleatoria);
+    }  
+}    
+aleatorizarPaleta();
+
+function coresAleatorias(arrayTabela) {
+    let paletaCor = document.querySelectorAll(".btn-container");
+    for (pixels of arrayTabela) {
+        for (let cor of paletaCor) {
+            let idRandom = (cor.id.slice(0, -1)) + (Math.floor(Math.random() * 4) + 1);
+            let corSelecionada = document.querySelector("." + idRandom);
+            let corAtual = getComputedStyle(corSelecionada).backgroundColor;
+            pixels.style.backgroundColor = corAtual;
+        }
+    }
+    corAtual = "black";
+}
+coresAleatorias(pixelArray);
