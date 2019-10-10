@@ -31,8 +31,6 @@ function criaTabela(linhasXColunas) {
 
 let pixelArray = criaTabela(5)
 
-//atribuindo função à paleta, que armazena a cor numa variavel
-//Bonus 1 - adicionar class "ativa" para cor ativa
 let paletaCor = document.querySelectorAll(".btn-container");
 function novaPaleta() {
     for (let cores of paletaCor) {
@@ -45,19 +43,15 @@ function novaPaleta() {
             }
         });
         cores.addEventListener("click", function () {
-            //atribui class active à div pai
             for (cor of paletaCor) {
                 cor.className = "btn-container";
             }
             this.className += " ativa";
-            // return corAtual
         })
     }
 }
 novaPaleta();
 
-//console.log (corSelecionada)
-//atribuindo função de pintar a tabela de pixel
 function pegaCores() {
     let paletaCor = document.querySelectorAll(".btn-container");
     for (cor of paletaCor) {
@@ -81,7 +75,7 @@ function funcaoPintar() {
     pintarTabela();
 }
 funcaoPintar();
-//resetar quadro - Bonus #2
+
 function resetar(arrayTabela) {
     let reset = document.querySelector(".reset");
     reset.addEventListener("click", function () {
@@ -92,10 +86,10 @@ function resetar(arrayTabela) {
 }
 resetar(pixelArray)
 
-//setar tamanho customizado: Bonus #3
 function tamanhoCustomizado() {
     let inputTamanho = document.querySelector(".input-tamanho");
     inputTamanho.addEventListener("change", function () {
+        if (inputTamanho.value >= 5 && inputTamanho.value<=50) {
         document.querySelector(".tabela-pixel").remove();
         let pixelArray = criaTabela(inputTamanho.value);
         console.log(pixelArray)
@@ -107,24 +101,20 @@ function tamanhoCustomizado() {
         corAtiva.className="btn-container"
         let paletaCor = document.querySelectorAll(".btn-container");
         paletaCor[0].className+=" ativa"
+        } else {
+            alert("Valores permitidos: de 5 a 50.")
+        }
     });
 }
 tamanhoCustomizado();
 
-//Bonus #4: Gerando paletas aleatórias
 function coresAleatorias(arrayTabela) {
     let paletaCor = document.querySelectorAll(".btn-container");
     for (pixels of arrayTabela) {
         for (let cor of paletaCor) {
-            //Este comando exclui o ultimo digito do cor.id que é um número, e adicionada
-            //a string "color" um outronumero aleatoriamente gerado de 0 a 3, 
-            //e depois adiciona +1, pois os Id's estão
-            //numeros como color1, color2, color3 e color 4;                
             let idRandom = (cor.id.slice(0, -1)) + (Math.floor(Math.random() * 4) + 1);
-            //captura o valor de backgroundColor das divs de cada botão
             let corSelecionada = document.querySelector("." + idRandom);
             let corAtual = getComputedStyle(corSelecionada).backgroundColor;
-            //aplica a cada pixel que esteja endo itnerpolado.            
             pixels.style.backgroundColor = corAtual;
         }
     }
@@ -138,7 +128,6 @@ function gitHub() {
     let pixelArray = document.querySelectorAll("td");
     let tamanhoTabela = Math.sqrt(pixelArray.length);
     let metadeTabela = tamanhoTabela / 2;
-    //Esta seção é responsável por "espelhar" o quadro.
     for (let x = 0; x < tamanhoTabela; x++) {
         let alienY = Math.floor(Math.random() * (tamanhoTabela - metadeTabela));
         let alienPixel = document.getElementById(x + "," + alienY);
