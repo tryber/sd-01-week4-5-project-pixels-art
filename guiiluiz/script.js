@@ -13,6 +13,7 @@ function generateColors() {
     for (colorIndex = 1; colorIndex < 4; colorIndex++) {
         targets[colorIndex].style.backgroundColor = generateRandomColors()
     }
+    color = "black";
 }
 
 function changeColor(palletId) {
