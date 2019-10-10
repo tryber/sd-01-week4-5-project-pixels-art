@@ -1,6 +1,7 @@
 body {
     overflow: auto;
     font-family: 'Courier New', Courier, monospace;
+    text-align: center;
 }
 div {
     cursor: default;
@@ -9,18 +10,7 @@ h1 {
     border: 2px solid black;
     margin: 60px 0px;
 }
-.main-container {
-    position: absolute;
-    margin-top: 35px;
-    margin-bottom: 35px;
-    left: 50%;
-    top: 50%;
-    width: 65%;
-    height: 95%;
-    padding: 30px 35px 30px 35px;
-    text-align: center;
-    transform: translate(-50%,-50%);
-    border: 2px solid black;
+.container {
     overflow: auto;
 }
 .container-paleta {
@@ -52,9 +42,9 @@ h1 {
 
 
 .container-tabela {
-    position: relative;
     display: inline-block;
-    margin-left: 200px;
+    margin-left: 30%;
+    margin-right: 20px;
     background-color: black
 }
 
