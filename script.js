@@ -2,6 +2,8 @@ let arrayTabela=[];
 let tabelaContainer = document.querySelector(".container-tabela"),
     tabela = document.createElement("table");
     tabela.className="tabela-pixel"
+    tabela.style.borderSpacing="0px"
+    tabela.style.outline="1px solid black"
     tabelaContainer.appendChild(tabela);   
 
 function criaLinhas(i) {
@@ -27,7 +29,7 @@ function criaTabela(linhasXColunas) {
             criaColunas(i,j);
         }
     }
-    document.querySelector('.container-tabela').style.width=linhasXColunas*40+"px";
+    document.querySelector('.container-tabela').style.minWidth=linhasXColunas*40+"px";
 }
 criaTabela(5)
 
