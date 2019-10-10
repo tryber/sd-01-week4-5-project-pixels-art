@@ -1,24 +1,34 @@
 let arrayTabela=[];
-function criaTabela(n) {
-    let tabelaContainer = document.querySelector(".container-tabela"),
-        tabela = document.createElement("table");
-        tabela.className="tabela-pixel"
-        tabelaContainer.appendChild(tabela);
-        for (let i = 0; i<n ; i++) {
-            let linha = document.createElement("tr");
-            tabela.appendChild(linha);
-            for (let j = 0; j<n ; j++){
-                let celula = document.createElement("td");
-                let novaLinha = linha.appendChild(celula);
-                novaLinha.id=[i,j];
-                arrayTabela.push(novaLinha)
-            }
-        }
-        document.querySelector('.container-tabela').style.minWidth=n*40+"px";
-        console.log(arrayTabela)
-        var dimensao = n;
+let tabelaContainer = document.querySelector(".container-tabela"),
+    tabela = document.createElement("table");
+    tabela.className="tabela-pixel"
+    tabelaContainer.appendChild(tabela);   
+
+function criaLinhas(i) {
+    let linha = document.createElement("tr");
+    linha.id=i;
+    tabela.appendChild(linha);
+    return linha;
 }
 
+function criaColunas(i,j) {
+    let coluna = document.createElement("td");
+    coluna.id+=[i,j];
+    let linha = document.getElementById(i);
+    console.log(linha)
+    let novaLinha = linha.appendChild(coluna);
+    arrayTabela.push(novaLinha)
+}
+
+function criaTabela(linhasXColunas) {
+    for (let i = 0; i<linhasXColunas ; i++) {
+        criaLinhas(i);
+        for (let j = 0; j<linhasXColunas ; j++){
+            criaColunas(i,j);
+        }
+    }
+    document.querySelector('.container-tabela').style.width=linhasXColunas*40+"px";
+}
 criaTabela(5)
 
 //atribuindo função à paleta, que armazena a cor numa variavel
