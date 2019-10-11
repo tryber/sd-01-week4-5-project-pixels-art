@@ -17,7 +17,7 @@ h1 {
     display: inline-block;
     top: 20%;
     margin-bottom: 35px;
-    width: 200px;
+    width: 250px;
     background-color: black;
     text-align: center;
     color: white;
@@ -46,7 +46,7 @@ h1 {
     margin: 3px 1px;
 }
 
-.color1{ background-color: black; outline:1px solid white}
+.color1,.black{ background-color: black; outline:1px solid white}
 .color2 {background-color: blue;}
 .color3 {background-color: #0FA36B;}
 .color4 {background-color: goldenrod;}

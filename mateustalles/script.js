@@ -143,12 +143,18 @@ function aleatorizarPaleta(){
     for(let c = 1; c<=4; c++){
         let corPaletaAleatoria = corAleatoria();
         let novaCorAleatoria = document.createElement("div");
-        novaCorAleatoria.className="cores-paleta";
-        novaCorAleatoria.className+=" color"+c;
+        novaCorAleatoria.className="cores-paleta color"+c;
+       // novaCorAleatoria.className+=" color"+c;
         novaCorAleatoria.style.backgroundColor=corPaletaAleatoria;
         let containerCor = document.getElementById("color"+c);
         containerCor.appendChild(novaCorAleatoria);
     }  
+    let novaCorAleatoria = document.createElement("div");
+    novaCorAleatoria.className="cores-paleta black";
+    //novaCorAleatoria.className+=" black";
+    //novaCorAleatoria.style.backgroundColor=corPaletaAleatoria;
+    let containerCor = document.getElementById("black");
+    containerCor.appendChild(novaCorAleatoria);
     coresAleatorias(pixelArray);
 }    
 
@@ -171,3 +177,5 @@ function coresAleatorias(arrayTabela) {
     corAtual = "black";
 }
 coresAleatorias(pixelArray);
+
+window.addEventListener("load",aleatorizarPaleta);
