@@ -1,16 +1,15 @@
 function gerarQuadrados() {
-    let sectionQuadrados = document.createElement('section')
-    let bodyPrincipal = document.getElementsByTagName('body')[0].appendChild(sectionQuadrados)
+    let localQuadrados, bodyPrincipal, tr, td, i, j
+
+    localQuadrados = document.createElement('section')
+    bodyPrincipal = document.getElementsByTagName('body')[0].appendChild(localQuadrados)
     table = document.createElement('table')
-    sectionQuadrados.appendChild(table)
-    sectionQuadrados.classList.add('paleta-de-cores')
+    localQuadrados.appendChild(table)
+    localQuadrados.classList.add('paleta-de-cores')
     
-    let tr, td
-    
-    // Cria a tabela vazia
-    for (let i = 0; i < 5; i++){
+    for (i = 0; i < 5; i++){
         tr = document.createElement('tr')
-        for (let j = 0; j < 5; j++){
+        for (j = 0; j < 5; j++){
             td = document.createElement('td')
             tr.appendChild(td)
         }
@@ -18,7 +17,6 @@ function gerarQuadrados() {
     }    
 }
 
-// Pega todas os quadrados gerados e coloca dentro de uma variável 
 function quadradosCriados() {
     let quadradosCriados = document.getElementsByTagName('td')
     return quadradosCriados;
