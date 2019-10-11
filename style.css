@@ -40,7 +40,7 @@ h1{
     background-color: black; 
 }
 .line-methods input[type="radio"]:checked + label {
-    border-color: #BB3ABD;
+    border:5px solid #BB3ABD;
     opacity: 0.7;
     color: black;
 }
@@ -62,3 +62,15 @@ table{
     margin-top: 1%;
 }
 
+#button{
+    width: 100px;
+    height: 40px;
+    background-color: #BB3ABD;
+    color:white;
+    border-radius: 10px;
+    text-align: center;
+}
+#styleButton{
+    margin-top: 2%;
+    text-align: center;
+}
