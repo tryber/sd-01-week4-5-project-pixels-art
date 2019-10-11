@@ -1,12 +1,19 @@
-function gerarQuadrados() {
-    let localQuadrados, bodyPrincipal, tr, td, i, j
-
+function criarDivQuadrados() {
+    let localQuadrados, bodyPrincipal
+    
     localQuadrados = document.createElement('section')
     bodyPrincipal = document.getElementsByTagName('body')[0].appendChild(localQuadrados)
+    localQuadrados.classList.add('paleta-de-cores')  
+}
+
+function gerarQuadrados() {
+    let td, i, j, tr, table, localQuadrados
+
     table = document.createElement('table')
-    localQuadrados.appendChild(table)
-    localQuadrados.classList.add('paleta-de-cores')
-    
+    tr = document.createElement('tr')
+    criarDivQuadrados(table)
+    localQuadrados = document.querySelector('.paleta-de-cores').appendChild(table)
+
     for (i = 0; i < 5; i++){
         tr = document.createElement('tr')
         for (j = 0; j < 5; j++){
@@ -14,8 +21,8 @@ function gerarQuadrados() {
             tr.appendChild(td)
         }
         table.appendChild(tr)
-    }    
-}
+    }
+}   
 
 function quadradosCriados() {
     let quadradosCriados = document.getElementsByTagName('td')
@@ -77,3 +84,4 @@ gerarQuadrados()
 corDefault()
 mudarCor()
 resetarCores()
+criarDivQuadrados()
