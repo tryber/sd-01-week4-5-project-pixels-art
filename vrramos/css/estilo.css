@@ -1,0 +1,41 @@
+.titulo-principal {
+    text-align: center;
+}
+
+td {    
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    margin-right: 5px;
+    border: 2px solid black;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.black {
+    background-color: black;
+}
+
+.green {
+    background-color: green;
+}
+
+.red {
+    background-color: red;
+}
+
+.paleta-de-cores {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.centralizar, .paleta {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
