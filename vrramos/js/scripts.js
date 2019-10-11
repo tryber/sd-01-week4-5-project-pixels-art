@@ -33,13 +33,8 @@ function quadradosCriados() {
 
 let quadradosBrancos = quadradosCriados()
 
-function color() {
-    return cor = "black"
-}
+let quadradosColoridos = "black"
 
-let quadradosColoridos = color()
-
-// Se o usuário não selecionar nenhuma cor, irá colorir na cor preta.
 function corDefault() {    
     for(let i = 4; i < quadradosBrancos.length; i++){    
         quadradosBrancos[i].addEventListener('click', function(){
@@ -48,7 +43,6 @@ function corDefault() {
     }    
 }
 
-// Seleciona a cor deseja e muda as cores nas tabelas
 function mudarCor() {
     let blue = document.querySelector('.blue')
     let red = document.querySelector('.red')
@@ -71,8 +65,7 @@ function mudarCor() {
         quadradosColoridos = "black"
     })
 }
-
-// Reseta as cores
+ 
 function resetarCores() {
     let button = document.querySelector('.btn')
     button.addEventListener('click', function(){
