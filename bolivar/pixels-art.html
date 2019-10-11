@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Pixels Art</title>
+        <link href="pixels-art.css" rel="stylesheet" type="text/css" media="all">
+    </head>
+    <body>
+        <h1 id="main-title"> <span>Pixels Art</h1>
+        <div id="main-div">
+        <div class="div">
+        <h2 class="subtitles"> <span> Palette of Colors </span></h2>
+        <button class="button" onclick="addColors()" type="submit" >Change Palette's Size</button>
+        <button class="button" onclick="changeCollor()" type="submit" >Change Palette's Colors</button>
+        <div id="collors-Pallete"></div>
+        </div>
+        <div class="div">
+        <h2 class="subtitles"><span>The Canvas</span></h2>
+        Input canvas size (1 - 40): <input id="input-canvas-size" maxLength = "2" type="text">
+        <button class="button" id="canvas-size" onclick="canvasSize()" type="submit">Canvas Size</button>
+        <div id="canvas"><table id="table-pixel-canvas"></table></div>
+        <button class="button" onclick="cleanCanvasCollors()" type="submit">Erase</button>
+        <button class="button" onclick="party()" type="submit">Party</button>
+        <button class="button" onclick="fillColors()" type="submit">Fill</button>
+        <button class="button" onclick="profile() " type="submit">Profile</button>
+        </div>
+        </div>
+        <script src="pixels-art.js"></script>
+    </body>
+</html>
