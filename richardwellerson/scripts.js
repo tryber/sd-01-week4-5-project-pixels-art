@@ -1,39 +1,41 @@
-let arrayColors = ["black","red","blue","yellowgreen","white"]
-let tblBlack = document.getElementById("tblblack")
-let tblRed = document.getElementById("tblred")
-let tblBlue = document.getElementById("tblblue")
-let tblYellowGreen = document.getElementById("tblyellowgreen")
-let firstColor = arrayColors[0]
+window.onload = function(){
+    let arrayColors = ["black","red","blue","yellowgreen","white"]
+    let tblBlack = document.getElementById("tblblack")
+    let tblRed = document.getElementById("tblred")
+    let tblBlue = document.getElementById("tblblue")
+    let tblYellowGreen = document.getElementById("tblyellowgreen")
+    let firstColor = arrayColors[0]
 
-tblBlack.addEventListener("click",function(){
-    firstColor = arrayColors[0]
-})
+    tblBlack.addEventListener("click",function(){
+        firstColor = arrayColors[0]
+    })
 
-tblRed.addEventListener("click",function(){
-    firstColor = arrayColors[1]
-})
+    tblRed.addEventListener("click",function(){
+        firstColor = arrayColors[1]
+    })
 
-tblBlue.addEventListener("click",function(){
-    firstColor = arrayColors[2]
-})
+    tblBlue.addEventListener("click",function(){
+        firstColor = arrayColors[2]
+    })
 
-tblYellowGreen.addEventListener("click",function(){
-    firstColor = arrayColors[3]
-})
+    tblYellowGreen.addEventListener("click",function(){
+        firstColor = arrayColors[3]
+    })
 
-function backgroundColorCell(){
-    for (let i = 0; i < 25; i++) {
-    let celulaTab = document.getElementsByClassName("celula")[i]
-        celulaTab.addEventListener("click", function(){
-        celulaTab.style.backgroundColor = firstColor})
+    function backgroundColorCell(){
+        for (let i = 0; i < 25; i++) {
+        let celulaTab = document.getElementsByClassName("celula")[i]
+            celulaTab.addEventListener("click", function(){
+            celulaTab.style.backgroundColor = firstColor})
+        }
     }
-}
-backgroundColorCell()
+    backgroundColorCell()
 
-function cleanTable() {
-    
-}
+    function cleanTable() {
+        
+    }
 
+}
 // valorRecebido = document.getElementsByTagName("input");
 
 // function blurBolado () {
@@ -59,6 +61,4 @@ function cleanTable() {
 // }
 
 // }
-
-
 
