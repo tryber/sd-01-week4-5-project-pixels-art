@@ -1,3 +1,7 @@
+#main-div{
+    display: flex;
+    justify-content: center;
+}
 .color {
     width: 40px;
     height: 40px;
@@ -14,17 +18,12 @@
 #selected-item{
     border: 5px solid red;
 }
-
-
-
-
-
-
-
-
-
-
-
+.button{
+    font-size: 18px;
+    display: inline-block;
+    padding: 2px;
+    margin: 5px 5px 5px 5px;
+}
 body{
     background-color: #FEFEFE;
 }
@@ -55,61 +54,8 @@ body{
 }
 .collum{
     width: 40px;
-    height: 40px;
-    
+    height: 40px; 
 } 
 #table-pixel-canvas{
     border-spacing: 0px;
-}
-#canvas{
-    margin-left: 20%
-}
-#select-div{
-    display: flex;
-    justify-content: center;
-}
-#black{
-    background-color: rgb(0,0,0);
-    width: 60px;
-    height: 60px;
-}
-.button{
-    font-size: 18px;
-    display: inline-block;
-    padding: 2px;
-    margin-left: 42%;
-    margin-top: 10px;
-    margin-bottom: 20px;
-}
-.buttonbottom{
-    background-color: #DF2935;
-    border: 3px solid black;
-    font-size: 18px;
-    display: inline-block;
-    padding: 2px;
-    margin-left: 100px;
-    margin-top: 30px;
-    margin-bottom: 20px;
-}
-#div{
-    display: flex;
-    justify-content: center;
-}
-.div{
-    
-    font-size: 20px;
-    border-radius: 10px;
-    text-align: center;
-    margin: 10px;
-    width: 300px;
-    padding:10px;
-}
-#subtittle{
-    background-color: #DF2935;
-    border: 3px solid black;
-    font-size: 18px;
-    display: inline-block;
-    padding: 2px;
-    margin-left: 100px;
-    margin-bottom: 20px;
 }

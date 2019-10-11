@@ -17,7 +17,7 @@ function setcollor() {
 }
 
 // Change Palette's Size // Each time you click the button return 4 colors
-clickcountaddColors = -1;
+var clickcountaddColors = -1;
 function addColors() {
     clickcountaddColors += 1;
     var element = searchElements();
