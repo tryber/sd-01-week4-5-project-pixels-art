@@ -7,38 +7,18 @@
     </head>
     <body>
         <h1 id="main-title"> <span>Pixels Art</h1>
-        <h2 class="subtitles"> <span> Palette of Colors</span></h2>
+        <h2 class="subtitles"> <span> Palette of Colors </span></h2>
+        <button class="button" onclick="addColors()" type="submit" >Change Palette's Size</button>
         <button class="button" onclick="changeCollor()" type="submit" >Change Palette's Colors</button>
-        <div id="select-div">
-            <div id="div1"></div>
-            <div id="div2"></div>
-            <div id="div3"></div>
-            <div id="div4"></div>
-            <div id="div5"></div>
-            <div id="div6"></div>
-            <div id="div7"></div>
-            <div id="div8"></div>
-            <div id="div9"></div>
-            <div id="div10"></div>
-            <div id="black"></div>
-        </div>
-        <h2 class="subtitles"> <span>The Canvas</span></h2>
-        <div>
-            <button class="button" onclick="tableSize()" type="submit">Canvas Size</button>
-            <p id="subtittle"></p>
-        </div>
-        <div id="canvas">
-        <table id="table-pixel-canvas">
-            <thead>
-                <th id="table-head"></th>
-            </thead>
-        </table>
-        </div>
-        <div id="div">
-        <button class="buttonbottom" onclick="tableErase() " type="submit">Erase</button>
-        <button class="buttonbottom" onclick="party() " type="submit">Party</button>
-        <button class="buttonbottom" onclick="perfil() " type="submit">Profile</button>
-        </div>
+        <div id="collors-Pallete"></div>
+        <h2 class="subtitles"><span>The Canvas</span></h2>
+        Input canvas size (1 - 40): <input id="input-canvas-size" maxLength = "2" type="text">
+        <button class="button" id="canvas-size" onclick="canvasSize()" type="submit">Canvas Size</button>
+        <div id="canvas"><table id="table-pixel-canvas"></table></div>
+        <button class="button" onclick="cleanCanvasCollors()" type="submit">Erase</button>
+        <button class="button" onclick="party()" type="submit">Party</button>
+        <button class="button" onclick="fillColors()" type="submit">Fill</button>
+        <button class="buttonbottom" onclick="profile() " type="submit">Profile</button>
         <script src="pixels-art.js"></script>
     </body>
 </html>

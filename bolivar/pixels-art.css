@@ -1,3 +1,30 @@
+.color {
+    width: 40px;
+    height: 40px;
+    margin: 5px 5px 5px 5px;
+    border-radius: 20px;
+    border: 1px solid black;
+}
+.pixel{
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+    background-color: white;
+}
+#selected-item{
+    border: 5px solid red;
+}
+
+
+
+
+
+
+
+
+
+
+
 body{
     background-color: #FEFEFE;
 }
@@ -29,8 +56,7 @@ body{
 .collum{
     width: 40px;
     height: 40px;
-    border: 1px solid black;
-    background-color: white;
+    
 } 
 #table-pixel-canvas{
     border-spacing: 0px;
