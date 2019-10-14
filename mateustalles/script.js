@@ -3,6 +3,7 @@ function criaLinhas(i, tabela) {
     linha.id = i;
     tabela.appendChild(linha);
 };
+
 function criaColunas(i, j, arrayTabela) {
     let coluna = document.createElement("td");
     coluna.id = [i, j];
@@ -30,7 +31,6 @@ function criaTabela(linhasXColunas) {
 };
 
 let pixelArray = criaTabela(5);
-
 let paletaCor = document.querySelectorAll(".btn-container");
 function novaPaleta() {
     for (let cores of paletaCor) {
@@ -144,23 +144,20 @@ function aleatorizarPaleta(){
         let corPaletaAleatoria = corAleatoria();
         let novaCorAleatoria = document.createElement("div");
         novaCorAleatoria.className="cores-paleta color"+c;
-       // novaCorAleatoria.className+=" color"+c;
         novaCorAleatoria.style.backgroundColor=corPaletaAleatoria;
         let containerCor = document.getElementById("color"+c);
         containerCor.appendChild(novaCorAleatoria);
     }  
     let novaCorAleatoria = document.createElement("div");
     novaCorAleatoria.className="cores-paleta black";
-    //novaCorAleatoria.className+=" black";
-    //novaCorAleatoria.style.backgroundColor=corPaletaAleatoria;
     let containerCor = document.getElementById("black");
     containerCor.appendChild(novaCorAleatoria);
     coresAleatorias(pixelArray);
 }    
 
 function botaoAleatorizar() {
-let btnAleatorizar=document.querySelector(".btn-aleatorizar");
-btnAleatorizar.addEventListener("click", aleatorizarPaleta);
+    let btnAleatorizar=document.querySelector(".btn-aleatorizar");
+    btnAleatorizar.addEventListener("click", aleatorizarPaleta);
 }
 botaoAleatorizar();
 
