@@ -1,0 +1,109 @@
+body {
+    overflow: auto;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+div {
+    cursor: default;
+}
+
+h1 {
+    border: 2px solid black;
+    margin: 60px 0px;
+}
+
+.container {
+    overflow: auto;
+}
+
+.container-paleta {
+    display: inline-block;
+    top: 20%;
+    margin-bottom: 35px;
+    width: 250px;
+    background-color: black;
+    text-align: center;
+    color: white;
+    padding: 10px;
+    font-weight: 800;
+}
+
+.menu-adicional {
+    position: absolute;
+    left: 5%;
+    top: 18%;
+    height: auto;
+    margin-bottom: 35px;
+    max-width: 200px;
+    background-color: black;
+    text-align: center;
+    color: white;
+    padding: 10px;
+    font-weight: 800;
+}
+
+.cores-paleta {
+    position: relative;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin: 3px 1px;
+}
+
+.color1,.black{ background-color: black; outline:1px solid white}
+
+.color2 {background-color: blue;}
+
+.color3 {background-color: #0FA36B;}
+
+.color4 {background-color: goldenrod;}
+
+
+.container-tabela {
+    display: inline-block;
+    margin-right: 20px;
+    margin-bottom: 35px;
+    background-color: black
+}
+
+td {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    outline: 1px solid black;
+    padding: 0px;
+}
+
+tr {
+    margin:0px;
+    display: block;
+}
+
+.btn-container {
+    display:inline-block;
+    height: 30px;
+    width: 30px;
+    padding: 10px 5px 5px 5px;
+}
+
+.ativa {
+    background-color: #D1CA98;
+}
+
+.ativa-hover {
+    background-color: #D1CA98;
+}
+
+.input-tamanho {
+    width: 20px;
+}
+
+.reset {
+    border: 1px solid white;
+}
+
+.btn-github,.btn-aleatorizar {
+    border: 1px solid white;
+    margin: 10px 0px;
+};

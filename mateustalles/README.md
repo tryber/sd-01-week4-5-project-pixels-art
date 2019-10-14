@@ -1,7 +1,6 @@
 PROJETO PIXEL ARTE
 -por Mateus Talles
 Link do GitHub Pages: mateustalles.github.io/projetos/pixel-arte/
-ls
 
 Olá, seja bem vindo ao projeto Pixel Arte!
 O programinha tem várias funcionalidades, você pode criar um canvas da cor que 
