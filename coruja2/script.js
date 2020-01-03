@@ -1,38 +1,63 @@
-let color1 = document.getElementById("paleta1");
-let color2 = document.getElementById("paleta2");
-let color3 = document.getElementById("paleta3");
-let color4 = document.getElementById("paleta4");
+const color = document.getElementsByClassName("cores");
+const printando = document.getElementsByTagName("td");
+const colorUsed = document.getElementById("selected-color");
+const buttonClear = document.getElementsByClassName("button-clear")[0];
+const buttonCreatSquare = document.getElementsByClassName("button-create-square-pixel")[0];
+const table = document.getElementById('tabela2');
+const tbody = document.getElementsByTagName('tbody')[0];
+const input = document.getElementById('input');
 
 let selectColor = "black";
-pintartodasascores();
+pintarTodasCores();
 
-color1.addEventListener('click', function() {
-  let computedStyle = getComputedStyle(color1);
-  selectColor = computedStyle.backgroundColor;
+for (let index = 1; index < color.length; index++) {
+  let red = Math.floor(Math.random() * 256);
+  let green = Math.floor(Math.random() * 256);
+  let blue = Math.floor(Math.random() * 256);
+  let randomColor = `rgb(${red}, ${green}, ${blue})`;
+  color[index].style.background = randomColor;
+}
+
+buttonCreatSquare.addEventListener('click', () => {
+  if (input.value < 5) {
+    alert('Selecione valores a partir de 5');
+  }
+  else {
+    while (table.hasChildNodes()) {
+      table.removeChild(table.firstChild);
+    }
+    let tbodyNew = document.createElement('tbody');
+    table.appendChild(tbodyNew);
+    for (let index = 0; index < input.value; index++) {
+      const tags = document.createElement('tr');
+      tbodyNew.appendChild(tags);
+      for (let index = 0; index < input.value; index++) {
+        const tag = document.createElement('td');
+        tags.appendChild(tag);
+      }
+    }
+  }
+  pintarTodasCores()
 })
 
-color2.addEventListener('click', function() {
-  let computedStyle = getComputedStyle(color2);
-  selectColor = computedStyle.backgroundColor;
-})
+for (let paint of color) {
+  paint.addEventListener('click', () => {
+    let computedStyle = getComputedStyle(paint);
+    selectColor = computedStyle.backgroundColor;
+    colorUsed.style.background = selectColor;
+  })
+}
 
-color3.addEventListener('click', function() {
-  let computedStyle = getComputedStyle(color3);
-  selectColor = computedStyle.backgroundColor;
-})
-
-color4.addEventListener('click', function() {
-  let computedStyle = getComputedStyle(color4);
-  selectColor = computedStyle.backgroundColor; 
-})
-
-function pintartodasascores() {
-  let printando = document.getElementsByTagName("td");
+function pintarTodasCores() {
   for (let recebendo of printando) {
-    recebendo.addEventListener('click', function(){
+    recebendo.addEventListener("click", () => {
       recebendo.style.background = selectColor;
-    })  
+    });
   }
 }
 
-
+buttonClear.addEventListener('click', () => {
+  for (let index = 0; index < printando.length; index++) {
+    printando[index].style.background = 'white';
+  }
+})

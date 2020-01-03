@@ -1,57 +1,67 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
     <title>Animação com pixel</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Paleta de cores</h1>
-    <div id="div-cores"> 
-        <div class="cores" id="paleta1" alt="black"></div>
-        <div class="cores" id="paleta2" alt="green"></div>
-        <div class="cores" id="paleta3" alt="red"></div>
-        <div class="cores" id="paleta4" alt="blue"></div>  
+    <div class="div-cores">
+      <div class="cores" id="paleta1" alt="black"></div>
+      <div class="cores" id="paleta2" alt="green"></div>
+      <div class="cores" id="paleta3" alt="red"></div>
+      <div class="cores" id="paleta4" alt="blue"></div>
+    </div>
+    <div class="div-cores">
+      <div id="selected-color"></div>
     </div>
     <table id="tabela2">
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
     </table>
+    <div class="div-cores">
+      <button type="button" class="button-clear">Limpar quadro</button>
+    </div>
+    <div class="div-cores">
+      <input type="number" placeholder="Estilize e clique ao lado" id="input">
+      <button type="button" class="button-create-square-pixel">Clique para estilizar</button>
+    </div>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
