@@ -19,8 +19,8 @@ for (let index = 1; index < color.length; index++) {
 }
 
 buttonCreatSquare.addEventListener('click', () => {
-  if (input.value < 5) {
-    alert('Selecione valores a partir de 5');
+  if (input.value < 5 || input.value > 50) {
+    alert('Selecione valores de 5 até 50');
   }
   else {
     while (table.hasChildNodes()) {
