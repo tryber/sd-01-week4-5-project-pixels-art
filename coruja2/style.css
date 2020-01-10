@@ -1,0 +1,53 @@
+h1 {
+    font-size: 6vw;
+    text-align: center;
+  }
+  
+  .div-cores {
+    display: flex;
+    justify-content: center;
+  }
+  .button-clear, .button-create-square-pixel {
+    height: 30px;
+    margin-top: 40px;
+  }
+  
+  .cores {
+    width: 40px;
+    height: 40px;
+    border: 2px solid yellow;
+  }
+  
+  input {
+    height: 25px;
+    margin-top: 40px;
+  }
+  #paleta1 {
+    background-color: black;
+  }
+  
+  #selected-color {
+    background: black;
+    border: solid 1px black;
+    padding: 20px;
+    width: 20%;
+    margin-top: 30px;
+  }
+  
+  #tabela2 {
+    border: solid thin;
+    border-collapse: collapse;
+    margin: 0 auto 0 auto;
+    margin-top: 40px;
+  }
+  
+  #tabela2 td {
+    border: solid thin;
+    padding: 0.5rem 0.5rem;
+  }
+  
+  td {
+    width: 40px;
+    height: 40px;
+  }
+  
